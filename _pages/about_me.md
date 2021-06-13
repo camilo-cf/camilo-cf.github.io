@@ -57,14 +57,15 @@ redirect_from:
   
   In 2017, I presented the [Approach of Kinematic Control for a Nonholonomic Wheeled Robot using Artificial Neural Networks and Genetic Algorithms](https://ieeexplore.ieee.org/abstract/document/7985533/) work in the 2017 International Conference and Workshop on Bioinspired Intelligence (IWOBI) in Portugal, because of that paper the proposal was improved giving as result a work what will be published soon, *Control Structure for a Car-like Robot using Artificial Neural Networks and Genetic Algorithms* in the Springer Journal Neural Computing and Applications. And recently other accepted paper, *Design, Simulation, and Control of an Omnidirectional Mobile Robot* in the IREME journal.
   
-  Currently, I'm in the second year of my Ph.D. My Ph.D. thesis is related to IoT/4.0 Industry concepts, operational research, Optimization and Healthcare systems. But I didn't leave my interest in data science, AI, automatic control (traditional and intelligent) and robotics; what I study in my free time.
+  In 2020, I finished my Ph.D. thesis on the area of Data Science, AO and  IoT/4.0, operational research, RL, Optimization and Healthcare systems. 
+  
+  Currently, I work as machine learning developer.
+  
+  
+  
   
   {% raw %}
   $$a^2 + b^2 = c^2$$
   {% endraw %}
   
   $$ x_t $$ and $$\theta_t$$
-  
-  
-  
-  
