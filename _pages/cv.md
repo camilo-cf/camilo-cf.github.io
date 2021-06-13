@@ -9,6 +9,9 @@ redirect_from:
 
 {% include base_path %}
 
+<a href="https://github.com/camilo-cf/camilo-cf.github.io/blob/f7dd0603396defb39447884bb780e34d53ee7875/CV_Camilo%20Andr%C3%A9s%20C%C3%A1ceres%20Fl%C3%B3rez%20nodata.pdf" title="Title"> CV - English PDF </a>
+
+
 Education
 ======
 * Ph.D. in Mechanical Engineering, University of Campinas (UNICAMP) (Campinas, Brazil), 2020 
@@ -84,6 +87,12 @@ COURSERA SPECIALIZATIONS FINISHED
   * Data for Machine Learning - (2020) - AMII/ Coursera
   * Machine Learning Algorithms: Supervised Learning Tip to Tail - (2020) - AMII/ Coursera
   * Introduction to Applied Machine Learning - (2020) - AMII/ Coursera
+
+* DeepLearning.AI TensorFlow Developer Professional Certificate - Deeplearning.ai/ Coursera 
+  * Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning (30h) - (2020) - Deeplearning.ai/ Coursera
+  * Convolutional Neural Networks in TensorFlow (26h) - (2020) - Deeplearning.ai/ Coursera
+  * Natural Language Processing in TensorFlow (14h) - (2021) - Deeplearning.ai/ Coursera
+  * Sequences, Time Series and Prediction (13h) - (2021) - Deeplearning.ai/ Coursera
   
 * Object Localization with TensorFlow (2h) - (2021) - Coursera
 * Machine Learning (2014) - Coursera	
@@ -93,13 +102,12 @@ COURSERA SPECIALIZATIONS IN PROCESS
   * Device-based Models with TensorFlow Lite (10h) - (2020) - Deeplearning.ai/ Coursera 
   * Browser-based Models with TensorFlow.js (18h) - (2020) - Deeplearning.ai/ Coursera
   
-* DeepLearning.AI TensorFlow Developer Professional Certificate - Deeplearning.ai/ Coursera 
-  * Convolutional Neural Networks in TensorFlow (26h) - (2020) - Deeplearning.ai/ Coursera
-  * Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning (30h) - (2020) - Deeplearning.ai/ Coursera
-
 * Modern Big Data Analysis with SQL Specialization - Cloudera/ Coursera
   * Analyzing Big Data with SQL (with Honors) (18h) - (2020) - Cloudera/ Coursera
   * Foundations for Big Data Analysis with SQL (with honors) (12h) - (2020) - Cloudera/ Coursera
+
+* Machine Learning Engineering for Production (MLOps) Specialization - Deeplearning.ai/ Coursera 
+  * Introduction to Machine Learning in Production (10h) - (2021) - Deeplearning.ai/ Coursera 
 
 LANGUAGE TESTS
 * EF SET English Certificate 72/100 (C2 Proficent) - EF Standard English Test (EF SET) - <a href="https://www.efset.org/cert/EC4Ldb" title="Title">Certification </a>
