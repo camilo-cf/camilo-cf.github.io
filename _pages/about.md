@@ -8,7 +8,7 @@ redirect_from:
   - /information.html
 ---
 
-Hi! I’m Camilo, a Mechatronic Engineer, I hold a M.Sc and a Ph.D. in Mechanical Engineering (Mechatronicsa - University of Campinas UNICAMP) (Campinas, São Paulo, Brazil).
+Hi! I’m Camilo, a Mechatronic Engineer, I hold a M.Sc and a Ph.D. in Mechanical Engineering (Mechatronics - University of Campinas UNICAMP) (Campinas, São Paulo, Brazil).
 
 In this website, I would like to introduce myself, my work (in academic/ research area), some interesting things/ideas, and also post some information/codes/tutorials in blog format about my different areas of interest.
 
