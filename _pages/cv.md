@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-<a href="https://github.com/camilo-cf/camilo-cf.github.io/blob/f7dd0603396defb39447884bb780e34d53ee7875/CV_Camilo%20Andr%C3%A9s%20C%C3%A1ceres%20Fl%C3%B3rez%20nodata.pdf" title="Title"> CV - English PDF </a>
+<u><a href="https://github.com/camilo-cf/camilo-cf.github.io/blob/f7dd0603396defb39447884bb780e34d53ee7875/CV_Camilo%20Andr%C3%A9s%20C%C3%A1ceres%20Fl%C3%B3rez%20nodata.pdf" title="Title"> Download my CV - English PDF </a></u>
 
 
 Education
