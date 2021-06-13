@@ -8,11 +8,14 @@ redirect_from:
   - /information.html
 ---
 
-Hi! I’m Camilo, a Mechatronic Engineer, I'm studying a Ph.D. at the School of Mechanical Engineering at University of Campinas (UNICAMP) (Campinas, São Paulo, Brazil).
+Hi! I’m Camilo, a Mechatronic Engineer, I hold a M.Sc and a Ph.D. in Mechanical Engineering (Mechatronicsa - University of Campinas UNICAMP) (Campinas, São Paulo, Brazil).
 
 In this website, I would like to introduce myself, my work (in academic/ research area), some interesting things/ideas, and also post some information/codes/tutorials in blog format about my different areas of interest.
 
 Between my interest topics are:
+  * Deep Learning
+  * Deep Reinforcement Learning 
+  * Data Science
   * Mechatronics
   * Robotics
   * Dynamic Systems
@@ -21,7 +24,7 @@ Between my interest topics are:
   * Neural Networks
   * Genetic Algorithms
   * Evolutionary Computing
-  * Artificial Intelligence
+  * Machine Learning
   * Signal and Image Processing
   * Optimization based in meta-heuristics
   * Bio-inspired algorithms
