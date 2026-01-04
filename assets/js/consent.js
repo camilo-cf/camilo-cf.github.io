@@ -17,6 +17,11 @@
     });
   }
 
+  function initPlausibleStub() {
+    if (window.plausible) return;
+    window.plausible = function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+  }
+
   function getStoredConsent() {
     if (typeof window.localStorage === "undefined") return config.defaultConsent || "denied";
     return window.localStorage.getItem(storageKey) || config.defaultConsent || "denied";
@@ -48,12 +53,37 @@
   }
 
   function enableAnalytics() {
+    if (config.analyticsProvider !== "google" && config.analyticsProvider !== "google-universal") return;
     if (!config.analyticsId || window.__analyticsLoaded) return;
     if (consentState !== "granted") return;
     window.__analyticsLoaded = true;
     loadScriptOnce("analytics-script", "https://www.googletagmanager.com/gtag/js?id=" + config.analyticsId);
     window.gtag("js", new Date());
     window.gtag("config", config.analyticsId, { anonymize_ip: true });
+  }
+
+  function enablePlausible() {
+    if (config.analyticsProvider !== "plausible") return;
+    if (!config.plausible || !config.plausible.domain || window.__plausibleLoaded) return;
+    if (config.plausible.requireConsent && consentState !== "granted") return;
+    var srcHost = (config.plausible.apiHost || "https://plausible.io").replace(/\/$/, "");
+    var scriptId = "plausible-script";
+    if (!document.getElementById(scriptId)) {
+      var script = document.createElement("script");
+      script.id = scriptId;
+      script.defer = true;
+      script.src = srcHost + "/js/script.js";
+      script.setAttribute("data-domain", config.plausible.domain);
+      script.setAttribute("data-api", srcHost);
+      if (config.plausible.manual) {
+        script.setAttribute("data-manual", "true");
+      }
+      if (config.plausible.trackLocalhost) {
+        script.setAttribute("data-track-localhost", "true");
+      }
+      document.head.appendChild(script);
+    }
+    window.__plausibleLoaded = true;
   }
 
   function enableAdsense() {
@@ -84,6 +114,7 @@
     });
     if (approved) {
       enableAnalytics();
+      enablePlausible();
       enableAdsense();
     }
     broadcastConsent(value);
@@ -102,6 +133,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     banner = document.getElementById("cookie-consent");
     initGtagStub();
+    initPlausibleStub();
     consentState = getStoredConsent();
     window.siteConsentState = consentState;
     bindBanner();
@@ -109,6 +141,7 @@
     updateBannerState(approved);
     if (approved) {
       enableAnalytics();
+      enablePlausible();
       enableAdsense();
     }
     broadcastConsent(consentState);
