@@ -7,6 +7,7 @@ lang: "es-419"
 i18n_key: "about"
 ref: "about"
 excerpt: "Perfil ejecutivo y módulos de credibilidad"
+description: "Staff ML Engineer diseñando sistemas de IA en producción para anuncios, marketplaces y GenAI. Arquitectura, experimentación y coaching para ML seguro a escala."
 redirect_from:
   - /es/sobre-mi/
 ---

@@ -6,6 +6,7 @@ author_profile: true
 lang: "pt-br"
 i18n_key: "cv"
 ref: "cv"
+description: "Staff ML Engineer e arquiteto de IA com experiência em GenAI, MLOps e medição causal para anúncios em escala. Ph.D. em Mecatrônica, EMBA em Liderança Estratégica."
 redirect_from:
   - /pt/cv/
 ---

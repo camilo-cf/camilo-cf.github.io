@@ -2,11 +2,12 @@
 permalink: /en/about/
 title: "About"
 excerpt: "Executive profile and proof points"
+description: "Staff ML Engineer building production AI systems for ads, marketplaces, and GenAI. Architecture, experimentation, and delivery coaching for safe ML at scale."
 author_profile: true
 lang: "en"
 i18n_key: "about"
 ref: "about"
-redirect_from: 
+redirect_from:
   - /about/
   - /about_me/
   - /information/
