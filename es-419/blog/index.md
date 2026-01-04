@@ -4,6 +4,7 @@ title: "Blog"
 permalink: /es-419/blog/
 author_profile: false
 paginate: 10
+locale_paginate: true
 lang: "es-419"
 i18n_key: "blog-index"
 ---
