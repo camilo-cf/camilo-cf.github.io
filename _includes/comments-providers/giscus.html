@@ -1,5 +1,5 @@
 {% assign giscus = site.comments.giscus %}
-{% if giscus.repo and giscus.category %}
+{% if giscus.repo and giscus.repo_id and giscus.category and giscus.category_id %}
   <div class="giscus-thread">
     <script src="https://giscus.app/client.js"
             data-repo="{{ giscus.repo }}"
@@ -18,5 +18,9 @@
             async>
     </script>
     <noscript>Please enable JavaScript to view the comments powered by Giscus.</noscript>
+  </div>
+{% else %}
+  <div class="notice--warning">
+    <p>Comments are currently unavailable because giscus is not fully configured for this site.</p>
   </div>
 {% endif %}
