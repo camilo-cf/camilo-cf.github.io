@@ -1,0 +1,37 @@
+{% assign current = include.post | default: page %}
+{% assign related_limit = include.limit | default: 4 %}
+{% assign related_posts = "" | split: "" %}
+
+{% for post in site.posts %}
+  {% if post.url != current.url %}
+    {% assign has_overlap = false %}
+    {% for category in current.categories %}
+      {% if post.categories contains category %}
+        {% assign has_overlap = true %}
+      {% endif %}
+    {% endfor %}
+    {% unless has_overlap %}
+      {% for tag in current.tags %}
+        {% if post.tags contains tag %}
+          {% assign has_overlap = true %}
+        {% endif %}
+      {% endfor %}
+    {% endunless %}
+    {% if has_overlap %}
+      {% assign related_posts = related_posts | push: post %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = related_posts | sort: "date" | reverse | slice: 0, related_limit %}
+
+{% if related_posts.size > 0 %}
+  <div class="page__related">
+    <h3 class="page__related-title">Related posts</h3>
+    <div class="grid__wrapper">
+      {% for post in related_posts %}
+        {% include archive-single.html type="grid" %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

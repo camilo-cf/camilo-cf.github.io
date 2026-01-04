@@ -1,0 +1,110 @@
+---
+layout: single
+title: "Blog"
+permalink: /blog/
+author_profile: false
+---
+
+<section class="start-here">
+  <h2>Start here</h2>
+  <p>Dive into the four pillars that organize the blog. Each link jumps to a curated hub with recommended posts.</p>
+  <div class="start-here__grid">
+    <a class="btn btn--primary" href="{{ "/pillars/ads-ml-systems-at-scale/" | relative_url }}">Ads ML systems at scale</a>
+    <a class="btn btn--primary" href="{{ "/pillars/causal-measurement-for-ads/" | relative_url }}">Causal measurement for ads</a>
+    <a class="btn btn--primary" href="{{ "/pillars/practical-mlops/" | relative_url }}">Practical MLOps</a>
+    <a class="btn btn--primary" href="{{ "/pillars/genai-in-production/" | relative_url }}">GenAI in production</a>
+  </div>
+</section>
+
+{% assign category_terms = "" | split: "" %}
+{% assign tag_terms = "" | split: "" %}
+{% for post in site.posts %}
+  {% for category in post.categories %}
+    {% unless category_terms contains category %}
+      {% assign category_terms = category_terms | push: category %}
+    {% endunless %}
+  {% endfor %}
+  {% for tag in post.tags %}
+    {% unless tag_terms contains tag %}
+      {% assign tag_terms = tag_terms | push: tag %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
+{% assign category_terms = category_terms | sort %}
+{% assign tag_terms = tag_terms | sort %}
+
+<section class="blog-filters">
+  <h3>Filter posts</h3>
+  <div class="blog-filters__controls">
+    <label for="category-filter">Category</label>
+    <select id="category-filter">
+      <option value="">All</option>
+      {% for category in category_terms %}
+        <option value="{{ category }}">{{ category }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="tag-filter">Tag</label>
+    <select id="tag-filter">
+      <option value="">All</option>
+      {% for tag in tag_terms %}
+        <option value="{{ tag }}">{{ tag }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</section>
+
+{% assign paginated_posts = paginator.posts | default: site.posts %}
+<div id="blog-list">
+  {% for post in paginated_posts %}
+    <article class="blog-card" data-categories="{{ post.categories | join: ',' }}" data-tags="{{ post.tags | join: ',' }}">
+      <h2 class="blog-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p class="blog-card__meta">{{ post.date | date: "%B %d, %Y" }} • {% include reading_time.html item=post %}</p>
+      {% if post.description %}
+        <p class="blog-card__excerpt">{{ post.description }}</p>
+      {% endif %}
+      <p class="blog-card__tags"><strong>Categories:</strong> {{ post.categories | join: ", " }} | <strong>Tags:</strong> {{ post.tags | join: ", " }}</p>
+    </article>
+  {% endfor %}
+</div>
+
+{% if paginator and paginator.total_pages > 1 %}
+  <nav class="pagination" role="navigation">
+    {% if paginator.previous_page %}
+      <a class="pagination__item pagination__item--prev" href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
+    {% endif %}
+    <span class="pagination__item">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a class="pagination__item pagination__item--next" href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+    {% endif %}
+  </nav>
+{% endif %}
+
+<script>
+  (function() {
+    var categoryFilter = document.getElementById("category-filter");
+    var tagFilter = document.getElementById("tag-filter");
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".blog-card"));
+
+    function matchesFilter(card, filterEl, key) {
+      var value = filterEl.value;
+      if (!value) return true;
+      var data = card.getAttribute("data-" + key);
+      if (!data) return false;
+      return data.split(",").map(function(entry) { return entry.trim(); }).indexOf(value) !== -1;
+    }
+
+    function applyFilters() {
+      cards.forEach(function(card) {
+        var categoryMatch = matchesFilter(card, categoryFilter, "categories");
+        var tagMatch = matchesFilter(card, tagFilter, "tags");
+        card.style.display = (categoryMatch && tagMatch) ? "" : "none";
+      });
+    }
+
+    if (categoryFilter && tagFilter) {
+      categoryFilter.addEventListener("change", applyFilters);
+      tagFilter.addEventListener("change", applyFilters);
+    }
+  })();
+</script>

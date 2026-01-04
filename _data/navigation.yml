@@ -19,6 +19,9 @@ main:
   #- title: "Portfolio and Projects"
    # url: /portfolio/
           
-  - title: "Blog Posts"
-    url: /year-archive/
+  - title: "Blog"
+    url: /blog/
+
+  - title: "Pillars"
+    url: /pillars/ads-ml-systems-at-scale/
     

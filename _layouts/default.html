@@ -9,16 +9,36 @@ layout: compress
   <head>	
     {% include head.html %}
     {% include head/custom.html %}
+    <script>
+      window.siteConsentConfig = {
+        enabled: {{ site.consent_banner.enabled | default: true | jsonify }},
+        storageKey: "{{ site.consent_banner.storage_key | default: "site_consent" }}",
+        defaultConsent: "{{ site.consent_banner.default_consent | default: "denied" }}",
+        learnMoreUrl: "{{ site.consent_banner.learn_more_url | default: "/privacy/" }}",
+        message: "{{ site.consent_banner.message | default: "This site uses cookies to personalize content and to remember your preferences." }}",
+        acceptText: "{{ site.consent_banner.accept_text | default: "Accept" }}",
+        rejectText: "{{ site.consent_banner.reject_text | default: "Reject" }}",
+        learnMoreText: "{{ site.consent_banner.learn_more_text | default: "Learn more" }}",
+        analyticsId: "{{ site.analytics.google.tracking_id | default: "" }}",
+        adsense: {
+          enabled: {{ site.adsense.enabled | default: false | jsonify }},
+          clientId: "{{ site.adsense.client_id }}",
+          slotIds: {
+            post_top: "{{ site.adsense.slot_ids.post_top }}",
+            post_bottom: "{{ site.adsense.slot_ids.post_bottom }}"
+          }
+        }
+      };
+    </script>
   </head>
 
   <body>
 
+    {% include cookie_banner.html %}
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
     {{ content }}
-
-    </script>
 
     <div class="page__footer">
       <footer>

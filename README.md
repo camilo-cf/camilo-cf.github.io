@@ -14,13 +14,29 @@ I think I've got things running smoothly and fixed some major bugs, but feel fre
 
 See more info at https://academicpages.github.io/
 
-## To run locally (not on GitHub Pages, to serve on your own computer)
+## Run locally
 
-1. Clone the repository and made updates as detailed above
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle clean` to clean up the directory (no need to run `--force`)
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `bundle exec jekyll liveserve` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+1. Install prerequisites: `ruby-dev`, `bundler`, and `nodejs`.
+2. Install gems: `bundle install` (remove `Gemfile.lock` if you need to regenerate it).
+3. Serve locally with GitHub Pages–compatible settings: `bundle exec jekyll serve --livereload`.
+
+## Configuration highlights
+
+- **SEO**: `jekyll-seo-tag` is enabled. Populate `_config.yml` with `title`, `description`, `url`, `logo`, `avatar`, `twitter_username`, and `social.links` for correct meta tags and JSON-LD output.
+- **Pagination**: `jekyll-paginate` is configured for `/blog/` with `paginate: 10` and `paginate_path: "/blog/page:num"`.
+- **CTA**: Configure `cta.contact_url`, `cta.subscribe_url`, `cta.case_study_url`, and `cta.show_case_study` to drive the post-level call-to-action buttons.
+- **Newsletter**: Set `newsletter.provider`, `newsletter.form_action`, or `newsletter.embed_html` for hosted forms. `newsletter.fallback_email` powers the mailto-based fallback.
+- **AdSense**: Controlled via `adsense.enabled`, `adsense.client_id`, `adsense.publisher_id`, and `adsense.slot_ids.post_top`/`post_bottom`. Ads stay off until enabled and consented.
+- **Consent**: The cookie banner defaults to opt-out and blocks analytics/ads until accepted. Customize labels and links under `consent_banner`.
+
+## Verification checklist
+
+- `sitemap.xml` and `feed.xml` are generated.
+- SEO meta tags (Open Graph + JSON-LD) render via `{% seo %}`.
+- `/blog/` paginates and supports category/tag filters; pillar pages list matching posts.
+- Reading time, related posts, and CTAs appear on post pages.
+- Cookie/consent banner appears, stores consent, and only loads GA/Ads after acceptance (ads are off by default).
+- Pagination, category/tag pages, and consent banner behave as expected when running `bundle exec jekyll serve`.
 
 # Changelog -- bugfixes and enhancements
 
