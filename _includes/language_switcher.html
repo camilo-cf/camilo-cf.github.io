@@ -1,19 +1,16 @@
-{% assign labels = site.data.language_labels | default: {} %}
-{% assign locales_source = site.supported_locales | default: site.languages | default: "en" %}
-{% assign locales = locales_source %}
-{% assign locales_json = locales_source | jsonify %}
-{% if locales_json | slice: 0, 1 != "[" %}
-  {% assign locales = locales_source | split: "," %}
-{% endif %}
-
-{% assign ref_key = page.ref | default: page.i18n_key | default: "" %}
-{% include translation_targets.html ref=ref_key locales=locales include_x_default=false %}
-
-{% assign current_locale = page.lang | default: site.lang | default: locales.first %}
-{% unless locales contains current_locale %}
-  {% assign current_locale = locales.first %}
-{% endunless %}
+{% comment %}
+Simple language switcher that builds locale links directly
+{% endcomment %}
+{% assign labels = site.data.language_labels %}
+{% assign current_locale = page.lang | default: site.lang | default: "en" %}
 {% assign current_label = labels[current_locale] | default: current_locale %}
+
+{% comment %}Get supported locales{% endcomment %}
+{% assign supported_locales = site.supported_locales | default: site.languages %}
+
+{% comment %}Build locale links by finding matching pages{% endcomment %}
+{% assign all_pages = site.pages %}
+{% assign page_ref = page.ref | default: page.i18n_key | default: "" %}
 
 <details class="lang-switcher" aria-label="Language selector">
   <summary class="lang-switcher__trigger">
@@ -26,22 +23,55 @@
   </summary>
 
   <div class="lang-switcher__panel" role="list">
-    {% for entry in translation_targets %}
-      {% assign parts = entry | split: "||" %}
-      {% assign locale = parts[0] %}
-      {% assign target = parts[1] %}
-      {% assign locale_label = labels[locale] | default: locale %}
+    {% for locale in supported_locales %}
+      {% comment %}Get the clean label for this locale{% endcomment %}
+      {% assign locale_label = labels[locale] %}
 
-      {% assign locale_code = locale | split: "-" | first | upcase %}
-      {% if locale == "en" %}{% assign locale_code = "EN" %}{% endif %}
-      {% if locale == "es-419" %}{% assign locale_code = "ES" %}{% endif %}
-      {% if locale == "pt-br" %}{% assign locale_code = "PT" %}{% endif %}
+      {% comment %}Build locale code for display (EN, ES, PT){% endcomment %}
+      {% assign locale_code = locale | upcase %}
+      {% if locale == "en" %}
+        {% assign locale_code = "EN" %}
+      {% elsif locale == "es-419" %}
+        {% assign locale_code = "ES" %}
+      {% elsif locale == "pt-br" or locale == "pt-BR" %}
+        {% assign locale_code = "PT" %}
+      {% endif %}
 
-      <a class="lang-switcher__option {% if page.lang == locale %}is-active{% endif %}" href="{{ target | relative_url }}" {% if page.lang == locale %}aria-current="page"{% endif %} role="listitem">
+      {% comment %}Find the matching page for this locale{% endcomment %}
+      {% assign target_page = nil %}
+      {% if page_ref != "" %}
+        {% for p in all_pages %}
+          {% assign p_ref = p.ref | default: p.i18n_key %}
+          {% if p_ref == page_ref and p.lang == locale %}
+            {% assign target_page = p %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      {% comment %}Fallback to locale homepage if no match found{% endcomment %}
+      {% if target_page %}
+        {% assign target_url = target_page.url | default: target_page.permalink %}
+      {% else %}
+        {% if locale == "en" %}
+          {% assign target_url = "/en/" %}
+        {% elsif locale == "es-419" %}
+          {% assign target_url = "/es-419/" %}
+        {% elsif locale == "pt-br" or locale == "pt-BR" %}
+          {% assign target_url = "/pt-br/" %}
+        {% else %}
+          {% assign target_url = "/" %}
+        {% endif %}
+      {% endif %}
+
+      <a class="lang-switcher__option {% if current_locale == locale %}is-active{% endif %}"
+         href="{{ target_url | relative_url }}"
+         {% if current_locale == locale %}aria-current="page"{% endif %}
+         role="listitem">
         <span class="lang-switcher__code">{{ locale_code }}</span>
         <span class="lang-switcher__label">
           <strong>{{ locale_label }}</strong>
-          <small class="lang-switcher__hint">{{ target }}</small>
+          <small class="lang-switcher__hint">{{ target_url }}</small>
         </span>
       </a>
     {% endfor %}
