@@ -2,50 +2,47 @@
 {% assign locales = site.supported_locales | default: site.languages | default: "en" | split: "," %}
 {% assign key = page.i18n_key | default: "" %}
 {% assign map = site.data.i18n_map[key] %}
-<div class="lang-switcher" aria-label="Language selector">
-  <span class="lang-switcher__label">Language</span>
-  <ul class="lang-switcher__list">
+{% assign current_locale = page.lang | default: site.lang | default: locales.first %}
+{% assign current_label = labels[current_locale] | default: current_locale %}
+
+<details class="lang-switcher" aria-label="Language selector">
+  <summary class="lang-switcher__trigger">
+    <span class="lang-switcher__icon" aria-hidden="true">🌐</span>
+    <span class="lang-switcher__text">
+      <span class="lang-switcher__eyebrow">Language</span>
+      <span class="lang-switcher__current">{{ current_label }}</span>
+    </span>
+    <span class="lang-switcher__chevron" aria-hidden="true"></span>
+  </summary>
+
+  <div class="lang-switcher__panel" role="list">
     {% if map and map["x-default"] %}
-      <li class="lang-switcher__item">
-        <a href="{{ map["x-default"] | relative_url }}" {% if page.lang == "x-default" %}aria-current="page"{% endif %}>Global</a>
-      </li>
+      <a class="lang-switcher__option" href="{{ map["x-default"] | relative_url }}" {% if page.lang == "x-default" %}aria-current="page"{% endif %} role="listitem">
+        <span class="lang-switcher__code">XD</span>
+        <span class="lang-switcher__label">
+          <strong>Global</strong>
+          <small class="lang-switcher__hint">Neutral landing, no tracking</small>
+        </span>
+      </a>
     {% endif %}
+
     {% for locale in locales %}
-      {% assign locale_label = locale %}
-      {% if labels and labels[locale] %}{% assign locale_label = labels[locale] %}{% endif %}
+      {% assign locale_label = labels[locale] | default: locale %}
       {% assign target = nil %}
       {% if map and map[locale] %}{% assign target = map[locale] %}{% endif %}
       {% unless target %}
         {% assign target = "/" | append: locale | append: "/" %}
       {% endunless %}
-      <li class="lang-switcher__item">
-        <a href="{{ target | relative_url }}" {% if page.lang == locale %}aria-current="page"{% endif %}>{{ locale_label }}</a>
-      </li>
+      {% assign locale_code = locale | split: "-" | last | upcase %}
+      {% if locale == "en" %}{% assign locale_code = "EN" %}{% endif %}
+      {% if locale == "es-419" %}{% assign locale_code = "ES" %}{% endif %}
+      <a class="lang-switcher__option {% if page.lang == locale %}is-active{% endif %}" href="{{ target | relative_url }}" {% if page.lang == locale %}aria-current="page"{% endif %} role="listitem">
+        <span class="lang-switcher__code">{{ locale_code }}</span>
+        <span class="lang-switcher__label">
+          <strong>{{ locale_label }}</strong>
+          <small class="lang-switcher__hint">{{ target }}</small>
+        </span>
+      </a>
     {% endfor %}
-  </ul>
-</div>
-
-<style>
-.lang-switcher {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.9rem;
-}
-.lang-switcher__list {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.lang-switcher__item a {
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-}
-.lang-switcher__item a[aria-current="page"] {
-  background: #eee;
-  font-weight: 600;
-}
-</style>
+  </div>
+</details>
