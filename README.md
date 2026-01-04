@@ -6,7 +6,7 @@ Multilingual Jekyll site (English, Spanish LatAm, Portuguese BR) with consent-aw
 
 ### Prerequisites
 
-- Ruby 3.1+ (check with `ruby --version`)
+- Ruby 3.2+ (check with `ruby --version`)
 - Bundler (`gem install bundler`)
 - Node.js 18+ (for testing)
 
