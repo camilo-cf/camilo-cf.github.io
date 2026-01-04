@@ -24,7 +24,7 @@ module.exports = defineConfig({
   ],
 
   webServer: process.env.CI ? undefined : {
-    command: 'bundle exec jekyll serve --skip-initial-build',
+    command: 'bundle exec jekyll serve',
     url: 'http://localhost:4000',
     reuseExistingServer: !process.env.CI,
   },
