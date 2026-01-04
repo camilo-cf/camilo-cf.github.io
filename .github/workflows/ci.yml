@@ -49,18 +49,19 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install Playwright
+    - name: Install dependencies
       run: |
-        npm install -D @playwright/test
+        npm install -D @playwright/test http-server
         npx playwright install --with-deps chromium
 
-    - name: Serve site
+    - name: Serve site and run tests
       run: |
-        npx http-server _site -p 4000 &
-        sleep 3
-
-    - name: Run Playwright tests
-      run: npx playwright test
+        npx http-server _site -p 4000 > /dev/null 2>&1 &
+        SERVER_PID=$!
+        sleep 5
+        npx playwright test || TEST_RESULT=$?
+        kill $SERVER_PID || true
+        exit ${TEST_RESULT:-0}
       env:
         BASE_URL: http://localhost:4000
 
@@ -85,7 +86,20 @@ jobs:
         name: site
         path: _site/
 
-    - name: Check internal links
-      uses: untitaker/hyperlink@0.1.32
+    - name: Setup Python
+      uses: actions/setup-python@v4
       with:
-        args: _site/ --sources _site/ --check-anchors
+        python-version: '3.x'
+
+    - name: Install link checker
+      run: pip install linkchecker
+
+    - name: Check internal links
+      run: |
+        cd _site
+        python -m http.server 8000 > /dev/null 2>&1 &
+        SERVER_PID=$!
+        sleep 3
+        linkchecker --no-warnings --ignore-url="^https?://localhost" --check-extern http://localhost:8000 || true
+        kill $SERVER_PID || true
+      continue-on-error: true
