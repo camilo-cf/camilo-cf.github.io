@@ -10,7 +10,7 @@ tags:
   - observability
   - governance
 permalink: /pt-br/blog/mlops-platform-guardrails/
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "post-mlops-anchor"
 ref: "mlops-platform-guardrails"
 show_ads: true

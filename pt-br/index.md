@@ -3,7 +3,7 @@ layout: single
 title: "Arquiteto de IA e Staff ML Engineer"
 permalink: /pt-br/
 author_profile: true
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "home"
 ref: "home"
 excerpt: "ML em produção, medição causal para ads, MLOps e GenAI."

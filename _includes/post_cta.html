@@ -1,16 +1,26 @@
 {% assign ui = site.data.ui-text[page.lang] | default: site.data.ui-text[site.lang] | default: site.data.ui-text["en"] %}
 
-{% include translation_targets.html ref="contact" locales=page.lang include_x_default=false %}
-{% assign contact_entry = translation_targets | first | default: "" %}
-{% assign contact_url = contact_entry | split: "||" | last | default: site.cta.contact_url | default: "/contact/" %}
+{% comment %} Build locale-aware URLs for CTAs {% endcomment %}
+{% assign current_lang = page.lang | default: site.lang | default: "en" %}
+{% assign contact_url = site.cta.contact_url | default: "/en/contact/" %}
+{% assign subscribe_url = site.cta.subscribe_url | default: "/newsletter/" %}
+{% assign case_study_url = site.cta.case_study_url | default: "" %}
 
-{% include translation_targets.html ref="newsletter" locales=page.lang include_x_default=false %}
-{% assign subscribe_entry = translation_targets | first | default: "" %}
-{% assign subscribe_url = subscribe_entry | split: "||" | last | default: site.cta.subscribe_url | default: "/newsletter/" %}
+{% comment %} Override with locale-specific URLs if available {% endcomment %}
+{% if current_lang == "es-419" %}
+  {% assign contact_url = "/es-419/contacto/" %}
+  {% assign subscribe_url = "/es-419/newsletter/" %}
+  {% assign case_study_url = "/es-419/casos/" %}
+{% elsif current_lang == "pt-br" or current_lang == "pt-BR" %}
+  {% assign contact_url = "/pt-br/contato/" %}
+  {% assign subscribe_url = "/pt-br/newsletter/" %}
+  {% assign case_study_url = "/pt-br/casos/" %}
+{% elsif current_lang == "en" %}
+  {% assign contact_url = "/en/contact/" %}
+  {% assign subscribe_url = "/newsletter/" %}
+  {% assign case_study_url = "/en/case-studies/" %}
+{% endif %}
 
-{% include translation_targets.html ref="case-studies" locales=page.lang include_x_default=false %}
-{% assign case_study_entry = translation_targets | first | default: "" %}
-{% assign case_study_url = case_study_entry | split: "||" | last | default: site.cta.case_study_url | default: "" %}
 <div class="post-cta">
   <h3>{{ ui.post_cta_title | default: "Continue the conversation" }}</h3>
   <p>{{ ui.post_cta_description | default: "Need a sounding board for ML, GenAI, or measurement decisions? Reach out or follow along with new playbooks." }}</p>

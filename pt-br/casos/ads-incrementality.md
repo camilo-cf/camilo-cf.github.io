@@ -3,7 +3,7 @@ layout: single
 title: "Incrementalidade de anúncios em escala"
 permalink: /pt-br/casos/ads-incrementality/
 author_profile: false
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "case-ads"
 ref: "case-ads"
 description: "Estimativa de lift com experimentos geo, simulações e testes criativos."

@@ -3,7 +3,7 @@ layout: single
 title: "Medição causal para anúncios"
 permalink: /pt-br/pilares/causal-measurement-for-ads/
 author_profile: false
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "pillar-ads"
 ref: "pillar-ads"
 ---

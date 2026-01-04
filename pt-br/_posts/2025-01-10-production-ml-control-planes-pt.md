@@ -10,7 +10,7 @@ tags:
   - contracts
   - observability
 permalink: /pt-br/blog/production-ml-control-planes/
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "post-production-anchor"
 ref: "production-ml-control-planes"
 show_ads: true

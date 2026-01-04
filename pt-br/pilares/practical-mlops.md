@@ -3,7 +3,7 @@ layout: single
 title: "MLOps prático"
 permalink: /pt-br/pilares/practical-mlops/
 author_profile: false
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "pillar-mlops"
 ref: "pillar-mlops"
 ---

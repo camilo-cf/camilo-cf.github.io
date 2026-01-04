@@ -3,7 +3,7 @@ layout: single
 title: "Estudos de caso"
 permalink: /pt-br/casos/
 author_profile: false
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "case-studies"
 ref: "case-studies"
 ---
