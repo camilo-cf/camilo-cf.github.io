@@ -5,6 +5,7 @@ permalink: /es-419/contacto/
 author_profile: false
 lang: "es-419"
 i18n_key: "contact"
+ref: "contact"
 ---
 
 Opciones para contactarme sin exponer correos personales.

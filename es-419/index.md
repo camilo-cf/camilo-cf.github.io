@@ -5,6 +5,7 @@ permalink: /es-419/
 author_profile: true
 lang: "es-419"
 i18n_key: "home"
+ref: "home"
 excerpt: "Sistemas de ML en producción, medición causal para ads, MLOps y GenAI."
 ---
 

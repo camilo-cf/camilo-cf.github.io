@@ -5,6 +5,7 @@ permalink: /en/case-studies/
 author_profile: false
 lang: "en"
 i18n_key: "case-studies"
+ref: "case-studies"
 redirect_from:
   - /case-studies/
 ---

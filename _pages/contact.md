@@ -5,6 +5,7 @@ permalink: /en/contact/
 author_profile: false
 lang: "en"
 i18n_key: "contact"
+ref: "contact"
 redirect_from:
   - /contact/
 ---

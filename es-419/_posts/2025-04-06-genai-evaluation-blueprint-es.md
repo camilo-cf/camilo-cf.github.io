@@ -12,6 +12,7 @@ tags:
 permalink: /es-419/blog/genai-evaluation-blueprint/
 lang: "es-419"
 i18n_key: "post-genai-anchor"
+ref: "genai-evaluation-blueprint"
 show_ads: true
 show_cta: true
 ---

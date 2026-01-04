@@ -5,6 +5,7 @@ permalink: /es-419/casos/platform-guardrails/
 author_profile: false
 lang: "es-419"
 i18n_key: "case-guardrails"
+ref: "case-guardrails"
 description: "Contratos de entrega, observabilidad por defecto y planes de reversión."
 ---
 

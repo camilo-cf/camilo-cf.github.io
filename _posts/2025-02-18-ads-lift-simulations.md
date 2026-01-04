@@ -12,6 +12,7 @@ tags:
 permalink: /en/blog/ads-lift-simulations/
 lang: "en"
 i18n_key: "post-ads-simulations"
+ref: "ads-lift-simulations"
 show_ads: true
 show_cta: true
 ---

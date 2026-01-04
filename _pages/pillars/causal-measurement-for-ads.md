@@ -7,6 +7,7 @@ redirect_from:
 author_profile: false
 lang: "en"
 i18n_key: "pillar-ads"
+ref: "pillar-ads"
 ---
 {% assign pillar_posts = site.posts | where_exp: "post", "post.categories contains 'causal-measurement-for-ads'" | where: "lang", page.lang | sort: "date" | reverse %}
 

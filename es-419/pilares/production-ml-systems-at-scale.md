@@ -5,6 +5,7 @@ permalink: /es-419/pilares/production-ml-systems-at-scale/
 author_profile: false
 lang: "es-419"
 i18n_key: "pillar-production"
+ref: "pillar-production"
 ---
 {% assign pillar_posts = site.posts | where_exp: "post", "post.categories contains 'production-ml-systems-at-scale'" | where: "lang", page.lang | sort: "date" | reverse %}
 

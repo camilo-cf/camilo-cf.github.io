@@ -5,6 +5,7 @@ permalink: /pt-br/
 author_profile: true
 lang: "pt-BR"
 i18n_key: "home"
+ref: "home"
 excerpt: "ML em produção, medição causal para ads, MLOps e GenAI."
 ---
 

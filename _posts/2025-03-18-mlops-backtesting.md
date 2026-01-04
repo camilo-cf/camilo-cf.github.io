@@ -12,6 +12,7 @@ tags:
 permalink: /en/blog/mlops-backtesting/
 lang: "en"
 i18n_key: "post-mlops-backtesting"
+ref: "mlops-backtesting"
 show_ads: true
 show_cta: true
 ---

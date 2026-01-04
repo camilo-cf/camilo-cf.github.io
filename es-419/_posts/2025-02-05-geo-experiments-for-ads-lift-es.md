@@ -12,6 +12,7 @@ tags:
 permalink: /es-419/blog/geo-experiments-for-ads-lift/
 lang: "es-419"
 i18n_key: "post-ads-anchor"
+ref: "geo-experiments-for-ads-lift"
 show_ads: true
 show_cta: true
 ---

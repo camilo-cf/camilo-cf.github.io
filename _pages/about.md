@@ -5,6 +5,7 @@ excerpt: "Executive profile and proof points"
 author_profile: true
 lang: "en"
 i18n_key: "about"
+ref: "about"
 redirect_from: 
   - /about/
   - /about_me/

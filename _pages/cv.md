@@ -5,6 +5,7 @@ permalink: /en/cv/
 author_profile: true
 lang: "en"
 i18n_key: "cv"
+ref: "cv"
 redirect_from:
   - /cv/
   - /resume

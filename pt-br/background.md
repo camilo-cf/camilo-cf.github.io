@@ -5,6 +5,7 @@ permalink: /pt-br/background/
 author_profile: true
 lang: "pt-BR"
 i18n_key: "background"
+ref: "background"
 excerpt: "Biografia estendida, pesquisa e primeiros projetos."
 ---
 

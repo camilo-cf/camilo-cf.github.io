@@ -1,38 +1,16 @@
 # Main navigation shared across locales
 main:
-  - key: about
+  - key: home
     titles:
-      default: "About"
-      en: "About"
-      es-419: "Sobre mí"
-      pt-BR: "Sobre mim"
+      default: "Home"
+      en: "Home"
+      es-419: "Inicio"
+      pt-BR: "Início"
     urls:
-      default: "/en/about/"
-      en: "/en/about/"
-      es-419: "/es-419/sobre-mi/"
-      pt-BR: "/pt-br/sobre/"
-  - key: cv
-    titles:
-      default: "CV"
-      en: "CV"
-      es-419: "CV"
-      pt-BR: "CV"
-    urls:
-      default: "/en/cv/"
-      en: "/en/cv/"
-      es-419: "/es-419/cv/"
-      pt-BR: "/pt-br/cv/"
-  - key: case-studies
-    titles:
-      default: "Case Studies"
-      en: "Case Studies"
-      es-419: "Casos de estudio"
-      pt-BR: "Estudos de caso"
-    urls:
-      default: "/en/case-studies/"
-      en: "/en/case-studies/"
-      es-419: "/es-419/casos/"
-      pt-BR: "/pt-br/casos/"
+      default: "/"
+      en: "/en/"
+      es-419: "/es-419/"
+      pt-BR: "/pt-br/"
   - key: blog
     titles:
       default: "Blog"
@@ -55,6 +33,39 @@ main:
       en: "/en/pillars/"
       es-419: "/es-419/pilares/"
       pt-BR: "/pt-br/pilares/"
+  - key: case-studies
+    titles:
+      default: "Case Studies"
+      en: "Case Studies"
+      es-419: "Casos de estudio"
+      pt-BR: "Estudos de caso"
+    urls:
+      default: "/en/case-studies/"
+      en: "/en/case-studies/"
+      es-419: "/es-419/casos/"
+      pt-BR: "/pt-br/casos/"
+  - key: cv
+    titles:
+      default: "CV"
+      en: "CV"
+      es-419: "CV"
+      pt-BR: "CV"
+    urls:
+      default: "/en/cv/"
+      en: "/en/cv/"
+      es-419: "/es-419/cv/"
+      pt-BR: "/pt-br/cv/"
+  - key: about
+    titles:
+      default: "About"
+      en: "About"
+      es-419: "Sobre mí"
+      pt-BR: "Sobre mim"
+    urls:
+      default: "/en/about/"
+      en: "/en/about/"
+      es-419: "/es-419/sobre-mi/"
+      pt-BR: "/pt-br/sobre/"
   - key: contact
     titles:
       default: "Contact"

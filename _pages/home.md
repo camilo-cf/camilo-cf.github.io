@@ -5,6 +5,7 @@ permalink: /
 author_profile: false
 lang: "x-default"
 i18n_key: "home"
+ref: "home"
 excerpt: "Choose your language to explore the site."
 ---
 

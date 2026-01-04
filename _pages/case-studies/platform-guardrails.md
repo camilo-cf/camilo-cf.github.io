@@ -5,6 +5,7 @@ permalink: /en/case-studies/platform-guardrails/
 author_profile: false
 lang: "en"
 i18n_key: "case-guardrails"
+ref: "case-guardrails"
 description: "How we introduced delivery contracts, observability defaults, and rollback playbooks for ML services."
 ---
 

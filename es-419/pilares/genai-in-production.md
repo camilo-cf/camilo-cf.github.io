@@ -5,6 +5,7 @@ permalink: /es-419/pilares/genai-in-production/
 author_profile: false
 lang: "es-419"
 i18n_key: "pillar-genai"
+ref: "pillar-genai"
 ---
 {% assign pillar_posts = site.posts | where_exp: "post", "post.categories contains 'genai-in-production'" | where: "lang", page.lang | sort: "date" | reverse %}
 

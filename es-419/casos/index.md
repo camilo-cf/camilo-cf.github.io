@@ -5,6 +5,7 @@ permalink: /es-419/casos/
 author_profile: false
 lang: "es-419"
 i18n_key: "case-studies"
+ref: "case-studies"
 ---
 
 Ejemplos prácticos de trabajo en ML de producción, medición y plataformas.

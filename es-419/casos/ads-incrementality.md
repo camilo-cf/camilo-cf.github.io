@@ -5,6 +5,7 @@ permalink: /es-419/casos/ads-incrementality/
 author_profile: false
 lang: "es-419"
 i18n_key: "case-ads"
+ref: "case-ads"
 description: "Estimación de lift con experimentos geo, simulaciones y pruebas creativas."
 ---
 

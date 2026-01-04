@@ -5,6 +5,7 @@ permalink: /pt-br/casos/
 author_profile: false
 lang: "pt-BR"
 i18n_key: "case-studies"
+ref: "case-studies"
 ---
 
 Exemplos práticos de ML em produção, medição e plataformas.

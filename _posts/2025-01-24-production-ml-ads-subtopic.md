@@ -12,6 +12,7 @@ tags:
 permalink: /en/blog/ads-ml-as-a-subtopic/
 lang: "en"
 i18n_key: "post-production-ads"
+ref: "ads-ml-as-a-subtopic"
 show_ads: true
 show_cta: true
 ---

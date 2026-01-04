@@ -12,6 +12,7 @@ tags:
 permalink: /en/blog/genai-safety-ops/
 lang: "en"
 i18n_key: "post-genai-safety"
+ref: "genai-safety-ops"
 show_ads: true
 show_cta: true
 ---

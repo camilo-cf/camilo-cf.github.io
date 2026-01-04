@@ -12,6 +12,7 @@ tags:
 permalink: /es-419/blog/production-ml-control-planes/
 lang: "es-419"
 i18n_key: "post-production-anchor"
+ref: "production-ml-control-planes"
 show_ads: true
 show_cta: true
 ---

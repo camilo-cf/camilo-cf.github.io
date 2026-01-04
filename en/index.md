@@ -5,6 +5,7 @@ permalink: /en/
 author_profile: true
 lang: "en"
 i18n_key: "home"
+ref: "home"
 excerpt: "Production ML, causal measurement for ads, MLOps, and GenAI in one place."
 ---
 
