@@ -8,7 +8,7 @@
 # Site Settings
 lang                     : "en"
 locale                   : "en-US"
-supported_locales        : ["en", "es-419", "pt-BR"]
+supported_locales        : ["en"]
 title                    : "Camilo Andrés Cáceres Flórez"
 title_separator          : "-"
 name                     : &name "Camilo Andrés Cáceres Flórez"
