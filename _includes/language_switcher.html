@@ -3,10 +3,18 @@ Simple language switcher that builds locale links directly
 {% endcomment %}
 {% assign labels = site.data.language_labels %}
 {% assign current_locale = page.lang | default: site.lang | default: "en" %}
-{% assign current_label = labels[current_locale] | default: current_locale %}
+{% comment %}Handle x-default for global landing page{% endcomment %}
+{% if current_locale == "x-default" %}
+  {% assign current_label = "Language" %}
+{% else %}
+  {% assign current_label = labels[current_locale] | default: current_locale %}
+{% endif %}
 
-{% comment %}Get supported locales{% endcomment %}
+{% comment %}Get supported locales with fallback{% endcomment %}
 {% assign supported_locales = site.supported_locales | default: site.languages %}
+{% unless supported_locales %}
+  {% assign supported_locales = "en,es-419,pt-br" | split: "," %}
+{% endunless %}
 
 {% comment %}Build locale links by finding matching pages{% endcomment %}
 {% assign all_pages = site.pages %}

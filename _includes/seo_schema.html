@@ -1,0 +1,33 @@
+{% comment %}
+Schema.org structured data for Person/Professional
+{% endcomment %}
+{% assign current_lang = page.lang | default: site.lang | default: "en" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author.name | default: site.name }}",
+  "jobTitle": "Staff ML Engineer & AI Architect",
+  "description": "{{ site.description }}",
+  "url": "{{ site.url }}{{ site.baseurl }}",
+  "image": "{{ site.url }}{{ site.baseurl }}{{ site.avatar }}",
+  "sameAs": [
+    {% if site.author.linkedin %}"https://www.linkedin.com/in/{{ site.author.linkedin }}"{% if site.author.github or site.author.googlescholar %},{% endif %}{% endif %}
+    {% if site.author.github %}"https://github.com/{{ site.author.github }}"{% if site.author.googlescholar %},{% endif %}{% endif %}
+    {% if site.author.googlescholar %}"{{ site.author.googlescholar }}"{% endif %}
+  ],
+  "alumniOf": {
+    "@type": "Organization",
+    "name": "UNICAMP"
+  },
+  "knowsAbout": [
+    "Machine Learning",
+    "Artificial Intelligence",
+    "MLOps",
+    "Causal Measurement",
+    "GenAI",
+    "Production ML Systems"
+  ]
+}
+</script>

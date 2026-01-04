@@ -110,39 +110,54 @@ ref: "blog-index"
 
 <script>
   (function() {
-    var categoryFilter = document.getElementById("category-filter");
-    var tagFilter = document.getElementById("tag-filter");
-    var cards = Array.prototype.slice.call(document.querySelectorAll(".blog-card"));
-    var emptyState = document.getElementById("blog-empty");
+    function initFilters() {
+      var categoryFilter = document.getElementById("category-filter");
+      var tagFilter = document.getElementById("tag-filter");
+      var cards = Array.prototype.slice.call(document.querySelectorAll(".blog-card"));
+      var emptyState = document.getElementById("blog-empty");
 
-    function matchesFilter(card, filterEl, key) {
-      var value = filterEl.value;
-      if (!value) return true;
-      var data = card.getAttribute("data-" + key);
-      if (!data) return false;
-      return data.split(",").map(function(entry) { return entry.trim(); }).indexOf(value) !== -1;
-    }
+      // Defensive: ensure empty state is hidden on initial load if we have posts
+      if (emptyState && cards.length > 0) {
+        emptyState.style.display = "none";
+      }
 
-    function applyFilters() {
-      var visibleCount = 0;
-      cards.forEach(function(card) {
-        var categoryMatch = matchesFilter(card, categoryFilter, "categories");
-        var tagMatch = matchesFilter(card, tagFilter, "tags");
-        var shouldShow = categoryMatch && tagMatch;
-        card.style.display = shouldShow ? "" : "none";
-        if (shouldShow) {
-          visibleCount += 1;
+      if (!categoryFilter || !tagFilter || cards.length === 0) {
+        return; // No filtering needed
+      }
+
+      function matchesFilter(card, filterEl, key) {
+        var value = filterEl.value;
+        if (!value) return true;
+        var data = card.getAttribute("data-" + key);
+        if (!data) return false;
+        return data.split(",").map(function(entry) { return entry.trim(); }).indexOf(value) !== -1;
+      }
+
+      function applyFilters() {
+        var visibleCount = 0;
+        cards.forEach(function(card) {
+          var categoryMatch = matchesFilter(card, categoryFilter, "categories");
+          var tagMatch = matchesFilter(card, tagFilter, "tags");
+          var shouldShow = categoryMatch && tagMatch;
+          card.style.display = shouldShow ? "" : "none";
+          if (shouldShow) {
+            visibleCount += 1;
+          }
+        });
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? "" : "none";
         }
-      });
-    if (emptyState) {
-      emptyState.style.display = visibleCount === 0 ? "" : "none";
-    }
-  }
+      }
 
-    if (categoryFilter && tagFilter && cards.length > 0) {
       categoryFilter.addEventListener("change", applyFilters);
       tagFilter.addEventListener("change", applyFilters);
-      applyFilters();
+    }
+
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFilters);
+    } else {
+      initFilters();
     }
   })();
 </script>
