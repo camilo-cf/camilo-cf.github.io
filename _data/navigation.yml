@@ -5,75 +5,75 @@ main:
       default: "Home"
       en: "Home"
       es-419: "Inicio"
-      pt-BR: "Início"
+      pt-br: "Início"
     urls:
       default: "/"
       en: "/en/"
       es-419: "/es-419/"
-      pt-BR: "/pt-br/"
+      pt-br: "/pt-br/"
   - key: blog
     titles:
       default: "Blog"
       en: "Blog"
       es-419: "Blog"
-      pt-BR: "Blog"
+      pt-br: "Blog"
     urls:
       default: "/en/blog/"
       en: "/en/blog/"
       es-419: "/es-419/blog/"
-      pt-BR: "/pt-br/blog/"
+      pt-br: "/pt-br/blog/"
   - key: pillars
     titles:
       default: "Pillars"
       en: "Pillars"
       es-419: "Pilares"
-      pt-BR: "Pilares"
+      pt-br: "Pilares"
     urls:
       default: "/en/pillars/"
       en: "/en/pillars/"
       es-419: "/es-419/pilares/"
-      pt-BR: "/pt-br/pilares/"
+      pt-br: "/pt-br/pilares/"
   - key: case-studies
     titles:
       default: "Case Studies"
       en: "Case Studies"
       es-419: "Casos de estudio"
-      pt-BR: "Estudos de caso"
+      pt-br: "Estudos de caso"
     urls:
       default: "/en/case-studies/"
       en: "/en/case-studies/"
       es-419: "/es-419/casos/"
-      pt-BR: "/pt-br/casos/"
+      pt-br: "/pt-br/casos/"
   - key: cv
     titles:
       default: "CV"
       en: "CV"
       es-419: "CV"
-      pt-BR: "CV"
+      pt-br: "CV"
     urls:
       default: "/en/cv/"
       en: "/en/cv/"
       es-419: "/es-419/cv/"
-      pt-BR: "/pt-br/cv/"
+      pt-br: "/pt-br/cv/"
   - key: about
     titles:
       default: "About"
       en: "About"
       es-419: "Sobre mí"
-      pt-BR: "Sobre mim"
+      pt-br: "Sobre mim"
     urls:
       default: "/en/about/"
       en: "/en/about/"
       es-419: "/es-419/sobre-mi/"
-      pt-BR: "/pt-br/sobre/"
+      pt-br: "/pt-br/sobre/"
   - key: contact
     titles:
       default: "Contact"
       en: "Contact"
       es-419: "Contacto"
-      pt-BR: "Contato"
+      pt-br: "Contato"
     urls:
       default: "/en/contact/"
       en: "/en/contact/"
       es-419: "/es-419/contacto/"
-      pt-BR: "/pt-br/contato/"
+      pt-br: "/pt-br/contato/"

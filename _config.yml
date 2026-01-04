@@ -8,7 +8,7 @@
 # Site Settings
 lang                     : "en"
 locale                   : "en-US"
-supported_locales        : ["en", "es-419", "pt-BR"]
+supported_locales        : ["en", "es-419", "pt-br"]
 title                    : "Camilo Andrés Cáceres Flórez"
 title_separator          : "-"
 name                     : &name "Camilo Andrés Cáceres Flórez"
@@ -328,7 +328,7 @@ defaults:
   - scope:
       path: "pt-br"
     values:
-      lang: "pt-BR"
+      lang: "pt-br"
       
 
 # Sass/SCSS

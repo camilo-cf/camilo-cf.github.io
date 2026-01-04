@@ -3,7 +3,7 @@ layout: single
 title: "Contato"
 permalink: /pt-br/contato/
 author_profile: false
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "contact"
 ref: "contact"
 ---
