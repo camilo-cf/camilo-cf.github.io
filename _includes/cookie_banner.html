@@ -1,0 +1,36 @@
+{% if site.consent_banner.enabled != false %}
+<div id="cookie-consent" class="cookie-consent" data-visible="false" role="dialog" aria-live="polite">
+  <div class="cookie-consent__message">
+    <p>{{ site.consent_banner.message | default: "This site uses cookies to improve your experience." }}</p>
+    <div class="cookie-consent__actions">
+      <button type="button" class="btn btn--primary" data-consent-action="accept">{{ site.consent_banner.accept_text | default: "Accept" }}</button>
+      <button type="button" class="btn" data-consent-action="reject">{{ site.consent_banner.reject_text | default: "Reject" }}</button>
+      <a class="cookie-consent__link" href="{{ site.consent_banner.learn_more_url | default: "/privacy/" }}">{{ site.consent_banner.learn_more_text | default: "Learn more" }}</a>
+    </div>
+  </div>
+</div>
+<style>
+  .cookie-consent {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    background: #111;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    z-index: 1000;
+    display: none;
+  }
+  .cookie-consent[data-visible="true"] { display: block; }
+  .cookie-consent__actions {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .cookie-consent__link { color: #8cc0ff; }
+</style>
+{% endif %}

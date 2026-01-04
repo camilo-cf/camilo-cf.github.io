@@ -2,7 +2,7 @@
 
 <meta charset="utf-8">
 
-{% include seo.html %}
+{% seo %}
 
 <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 
@@ -20,3 +20,5 @@
 
 <meta http-equiv="cleartype" content="on">
 <meta name="google-site-verification" content="MadNWU7hGRV0BJcaF3Rm9X2LvQvmyXvBs_QkvYNmE9w" />
+
+{% include adsense_head.html %}

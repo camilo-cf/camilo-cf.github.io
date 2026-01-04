@@ -1,0 +1,13 @@
+{% if site.adsense.enabled and site.adsense.client_id %}
+<script>
+  window.loadAdsenseScript = window.loadAdsenseScript || function () {
+    if (document.getElementById("adsense-script")) return;
+    var adsenseScript = document.createElement("script");
+    adsenseScript.id = "adsense-script";
+    adsenseScript.async = true;
+    adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense.client_id | uri_escape }}";
+    adsenseScript.crossOrigin = "anonymous";
+    document.head.appendChild(adsenseScript);
+  };
+</script>
+{% endif %}

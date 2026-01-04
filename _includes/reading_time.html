@@ -1,0 +1,8 @@
+{% assign source = include.item | default: page %}
+{% assign text = include.content | default: source.content %}
+{% assign words = text | strip_html | number_of_words %}
+{% assign minutes = words | divided_by: 200 %}
+{% if minutes == 0 %}
+  {% assign minutes = 1 %}
+{% endif %}
+{{ minutes }} minute{% if minutes > 1 %}s{% endif %} read

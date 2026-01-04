@@ -1,0 +1,21 @@
+{% assign contact_url = site.cta.contact_url | default: "" %}
+{% assign subscribe_url = site.cta.subscribe_url | default: "" %}
+{% assign case_study_url = site.cta.case_study_url | default: "" %}
+{% assign show_case_study = site.cta.show_case_study | default: false %}
+
+{% if contact_url or subscribe_url or show_case_study %}
+<div class="post-cta">
+  <h3>Continue the conversation</h3>
+  <div class="post-cta__actions">
+    {% if contact_url %}
+      <a class="btn btn--primary" href="{{ contact_url }}">Hire me / Contact</a>
+    {% endif %}
+    {% if subscribe_url %}
+      <a class="btn" href="{{ subscribe_url }}">Subscribe</a>
+    {% endif %}
+    {% if show_case_study and case_study_url %}
+      <a class="btn" href="{{ case_study_url }}">Case study</a>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
