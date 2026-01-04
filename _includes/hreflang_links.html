@@ -1,0 +1,11 @@
+{% assign key = page.i18n_key | default: "" %}
+{% assign map = site.data.i18n_map[key] %}
+{% if map %}
+  {% for locale_item in map %}
+    {% assign hreflang_code = locale_item[0] %}
+    {% assign href_value = locale_item[1] %}
+    {% if href_value %}
+      <link rel="alternate" hreflang="{{ hreflang_code }}" href="{{ href_value | absolute_url }}">
+    {% endif %}
+  {% endfor %}
+{% endif %}

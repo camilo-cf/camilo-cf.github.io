@@ -2,6 +2,6 @@
 permalink: /ads.txt
 layout: null
 ---
-{% if site.adsense.publisher_id %}
+{% if site.adsense.enabled and site.adsense.publisher_id %}
 google.com, {{ site.adsense.publisher_id }}, DIRECT, f08c47fec0942fa0
 {% endif %}

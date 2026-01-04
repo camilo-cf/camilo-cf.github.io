@@ -1,0 +1,51 @@
+{% assign labels =  site.data.language_labels | default: nil %}
+{% assign locales = site.supported_locales | default: site.languages | default: "en" | split: "," %}
+{% assign key = page.i18n_key | default: "" %}
+{% assign map = site.data.i18n_map[key] %}
+<div class="lang-switcher" aria-label="Language selector">
+  <span class="lang-switcher__label">Language</span>
+  <ul class="lang-switcher__list">
+    {% if map and map["x-default"] %}
+      <li class="lang-switcher__item">
+        <a href="{{ map["x-default"] | relative_url }}" {% if page.lang == "x-default" %}aria-current="page"{% endif %}>Global</a>
+      </li>
+    {% endif %}
+    {% for locale in locales %}
+      {% assign locale_label = locale %}
+      {% if labels and labels[locale] %}{% assign locale_label = labels[locale] %}{% endif %}
+      {% assign target = nil %}
+      {% if map and map[locale] %}{% assign target = map[locale] %}{% endif %}
+      {% unless target %}
+        {% assign target = "/" | append: locale | append: "/" %}
+      {% endunless %}
+      <li class="lang-switcher__item">
+        <a href="{{ target | relative_url }}" {% if page.lang == locale %}aria-current="page"{% endif %}>{{ locale_label }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<style>
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+.lang-switcher__list {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.lang-switcher__item a {
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.lang-switcher__item a[aria-current="page"] {
+  background: #eee;
+  font-weight: 600;
+}
+</style>

@@ -8,16 +8,20 @@
         <ul class="visible-links">
           <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{{ site.title }}</a></li>
           {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-              {% else %}
-              {% assign domain = base_path %}
+            {% assign domain = link.url %}
+            {% if link.urls %}
+              {% assign domain = link.urls[page.lang] | default: link.urls[site.lang] | default: link.urls["default"] | default: link.url %}
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            {% assign link_title = link.title %}
+            {% if link.titles %}
+              {% assign link_title = link.titles[page.lang] | default: link.titles[site.lang] | default: link.titles["default"] | default: link.title %}
+            {% endif %}
+            <li class="masthead__menu-item"><a href="{{ domain | relative_url }}">{{ link_title }}</a></li>
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
+      {% include lang-switcher.html %}
     </div>
   </div>
 </div>

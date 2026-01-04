@@ -1,8 +1,12 @@
 ---
 layout: single
 title: "Contact"
-permalink: /contact/
+permalink: /en/contact/
 author_profile: false
+lang: "en"
+i18n_key: "contact"
+redirect_from:
+  - /contact/
 ---
 
 Here are low-friction ways to get in touch without exposing personal email addresses.
@@ -33,7 +37,7 @@ Here are low-friction ways to get in touch without exposing personal email addre
   <textarea id="contact-message" name="message" rows="4" required></textarea>
 
   <input type="text" name="_gotcha" style="display:none">
-  <p class="contact-note">Form submissions are handled by the configured provider. Enable reCAPTCHA in the provider settings for extra spam protection.</p>
+  <p class="contact-note">Form submissions are handled by the configured provider. Enable reCAPTCHA or CAPTCHA in the provider settings for extra spam protection.</p>
   <button type="submit" class="btn btn--primary">Send</button>
 </form>
 {% endif %}

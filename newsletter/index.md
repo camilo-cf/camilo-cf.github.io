@@ -3,11 +3,15 @@ layout: single
 title: "Newsletter"
 permalink: /newsletter/
 author_profile: false
+lang: "en"
+i18n_key: "newsletter"
 ---
 
-Stay up to date with new posts, playbooks, and case studies. Choose the best way for you to subscribe.
+{% assign locale_copy = site.data.newsletter[page.lang] | default: site.data.newsletter[site.lang] | default: site.data.newsletter.en %}
 
-<p><a class="btn" href="{{ "/feed.xml" | relative_url }}">Subscribe via RSS/Atom</a></p>
+{{ locale_copy.intro }}
+
+<p><a class="btn" href="{{ "/feed.xml" | relative_url }}">{{ locale_copy.rss_label }}</a></p>
 
 {% if site.newsletter.embed_html %}
   <div class="newsletter-embed">
@@ -21,7 +25,7 @@ Stay up to date with new posts, playbooks, and case studies. Choose the best way
     <button type="submit" class="btn btn--primary">Subscribe</button>
   </form>
 {% else %}
-  <p>Provider-hosted embeds can be added via <code>newsletter.embed_html</code> in <code>_config.yml</code>. Until then, use the RSS feed above to stay updated.</p>
+  <p>{{ locale_copy.provider_hint }}</p>
 {% endif %}
 
 <p class="newsletter-note">All signups are handled by the configured email provider; this site does not store your email locally.</p>

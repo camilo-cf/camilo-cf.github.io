@@ -1,21 +1,31 @@
-{% assign contact_url = site.cta.contact_url | default: "" %}
-{% assign subscribe_url = site.cta.subscribe_url | default: "" %}
-{% assign case_study_url = site.cta.case_study_url | default: "" %}
-{% assign show_case_study = site.cta.show_case_study | default: false %}
-
-{% if contact_url or subscribe_url or show_case_study %}
+{% assign contact_url = site.data.i18n_map.contact[page.lang] | default: site.cta.contact_url | default: "/contact/" %}
+{% assign subscribe_url = site.data.i18n_map.newsletter[page.lang] | default: site.cta.subscribe_url | default: "/newsletter/" %}
+{% assign case_study_map = site.data.i18n_map["case-studies"] %}
+{% assign case_study_url = case_study_map[page.lang] | default: site.cta.case_study_url | default: "" %}
 <div class="post-cta">
   <h3>Continue the conversation</h3>
+  <p>Need a sounding board for ML, GenAI, or measurement decisions? Reach out or follow along with new playbooks.</p>
   <div class="post-cta__actions">
-    {% if contact_url %}
-      <a class="btn btn--primary" href="{{ contact_url }}">Hire me / Contact</a>
-    {% endif %}
-    {% if subscribe_url %}
-      <a class="btn" href="{{ subscribe_url }}">Subscribe</a>
-    {% endif %}
-    {% if show_case_study and case_study_url %}
-      <a class="btn" href="{{ case_study_url }}">Case study</a>
+    <a class="btn btn--primary" href="{{ contact_url | relative_url }}">Contact</a>
+    <a class="btn" href="{{ subscribe_url | relative_url }}">Subscribe via RSS or email</a>
+    {% if site.cta.show_case_study and case_study_url != "" %}
+      <a class="btn" href="{{ case_study_url | relative_url }}">See a case study</a>
     {% endif %}
   </div>
 </div>
-{% endif %}
+
+<style>
+.post-cta {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+.post-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+</style>
