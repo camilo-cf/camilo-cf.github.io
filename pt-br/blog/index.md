@@ -74,20 +74,21 @@ ref: "blog-index"
 <div class="blog-rss">
   <a class="btn btn--primary" href="{{ "/feed.xml" | relative_url }}">RSS / Atom</a>
 </div>
-<div id="blog-list-pt">
-  {% for post in paginated_posts %}
-    <article class="blog-card" data-categories="{{ post.categories | join: ',' }}" data-tags="{{ post.tags | join: ',' }}">
-      <h2 class="blog-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-      <p class="blog-card__meta">{{ post.date | date: "%B %d, %Y" }} • {% include reading_time.html item=post %}</p>
-      {% if post.description %}
-        <p class="blog-card__excerpt">{{ post.description }}</p>
-      {% endif %}
-      <p class="blog-card__tags"><strong>Categorias:</strong> {{ post.categories | join: ", " }} | <strong>Tags:</strong> {{ post.tags | join: ", " }}</p>
-    </article>
-  {% endfor %}
-</div>
-<p id="blog-empty-pt" class="blog-empty" style="display:none;">Nenhum post combina com os filtros.</p>
-{% if has_posts == 0 %}
+{% if has_posts > 0 %}
+  <div id="blog-list-pt">
+    {% for post in paginated_posts %}
+      <article class="blog-card" data-categories="{{ post.categories | join: ',' }}" data-tags="{{ post.tags | join: ',' }}">
+        <h2 class="blog-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="blog-card__meta">{{ post.date | date: "%B %d, %Y" }} • {% include reading_time.html item=post %}</p>
+        {% if post.description %}
+          <p class="blog-card__excerpt">{{ post.description }}</p>
+        {% endif %}
+        <p class="blog-card__tags"><strong>Categorias:</strong> {{ post.categories | join: ", " }} | <strong>Tags:</strong> {{ post.tags | join: ", " }}</p>
+      </article>
+    {% endfor %}
+  </div>
+  <p id="blog-empty-pt" class="blog-empty" style="display:none;">Nenhum post combina com os filtros.</p>
+{% else %}
   <div class="blog-empty blog-empty--locale">
     <p>Os posts em português chegarão em breve. Enquanto isso, visite o <a href="{{ "/en/blog/" | relative_url }}">blog em inglês</a> para ver as novidades.</p>
   </div>

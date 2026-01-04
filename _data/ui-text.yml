@@ -39,6 +39,11 @@ en: &DEFAULT_EN
   comment_success_msg        : "Thanks for your comment! It will show on the site once it has been approved."
   comment_error_msg          : "Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again."
   loading_label              : "Loading..."
+  post_cta_title             : "Continue the conversation"
+  post_cta_description       : "Need a sounding board for ML, GenAI, or measurement decisions? Reach out or follow along with new playbooks."
+  post_cta_contact           : "Contact"
+  post_cta_subscribe         : "Subscribe via RSS or email"
+  post_cta_case_study        : "See a case study"
 en-US:
   <<: *DEFAULT_EN
 en-CA:
@@ -87,9 +92,16 @@ es: &DEFAULT_ES
   comment_success_msg        :
   comment_error_msg          :
   loading_label              :
+  post_cta_title             : "Continúa la conversación"
+  post_cta_description       : "¿Necesitas opiniones sobre ML, GenAI o decisiones de medición? Contáctame o sigue los nuevos playbooks."
+  post_cta_contact           : "Contacto"
+  post_cta_subscribe         : "Suscríbete vía RSS o email"
+  post_cta_case_study        : "Ver un caso de estudio"
 es-ES:
   <<: *DEFAULT_ES
 es-CO:
+  <<: *DEFAULT_ES
+es-419:
   <<: *DEFAULT_ES
 
 # French
@@ -219,6 +231,13 @@ pt: &DEFAULT_PT
   comment_success_msg        :
   comment_error_msg          :
   loading_label              :
+  post_cta_title             : "Continue a conversa"
+  post_cta_description       : "Precisa de ajuda com decisões sobre ML, GenAI ou medição? Entre em contato ou acompanhe os novos playbooks."
+  post_cta_contact           : "Contato"
+  post_cta_subscribe         : "Assine via RSS ou email"
+  post_cta_case_study        : "Ver um estudo de caso"
+pt-br:
+  <<: *DEFAULT_PT
 pt-BR:
   <<: *DEFAULT_PT
 pt-PT:

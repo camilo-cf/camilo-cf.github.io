@@ -8,6 +8,11 @@ es-419:
   intro: "Recibe novedades de posts, guías y casos de estudio. El RSS es el canal principal; el correo es opcional."
   rss_label: "Suscríbete por RSS/Atom"
   provider_hint: "Los formularios del proveedor son opcionales y se controlan por configuración. RSS siempre está disponible."
+pt-br:
+  title: "Newsletter e novidades"
+  intro: "Fique por dentro de posts, guias e estudos de caso. O RSS é o canal principal; email é opcional."
+  rss_label: "Assine via RSS/Atom"
+  provider_hint: "Embeds do provedor são opcionais e controlados por configuração. RSS permanece ativo."
 pt-BR:
   title: "Newsletter e novidades"
   intro: "Fique por dentro de posts, guias e estudos de caso. O RSS é o canal principal; email é opcional."

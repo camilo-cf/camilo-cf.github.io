@@ -1,3 +1,5 @@
+{% assign ui = site.data.ui-text[page.lang] | default: site.data.ui-text[site.lang] | default: site.data.ui-text["en"] %}
+
 {% include translation_targets.html ref="contact" locales=page.lang include_x_default=false %}
 {% assign contact_entry = translation_targets | first | default: "" %}
 {% assign contact_url = contact_entry | split: "||" | last | default: site.cta.contact_url | default: "/contact/" %}
@@ -10,13 +12,13 @@
 {% assign case_study_entry = translation_targets | first | default: "" %}
 {% assign case_study_url = case_study_entry | split: "||" | last | default: site.cta.case_study_url | default: "" %}
 <div class="post-cta">
-  <h3>Continue the conversation</h3>
-  <p>Need a sounding board for ML, GenAI, or measurement decisions? Reach out or follow along with new playbooks.</p>
+  <h3>{{ ui.post_cta_title | default: "Continue the conversation" }}</h3>
+  <p>{{ ui.post_cta_description | default: "Need a sounding board for ML, GenAI, or measurement decisions? Reach out or follow along with new playbooks." }}</p>
   <div class="post-cta__actions">
-    <a class="btn btn--primary" href="{{ contact_url | relative_url }}">Contact</a>
-    <a class="btn" href="{{ subscribe_url | relative_url }}">Subscribe via RSS or email</a>
+    <a class="btn btn--primary" href="{{ contact_url | relative_url }}">{{ ui.post_cta_contact | default: "Contact" }}</a>
+    <a class="btn" href="{{ subscribe_url | relative_url }}">{{ ui.post_cta_subscribe | default: "Subscribe via RSS or email" }}</a>
     {% if site.cta.show_case_study and case_study_url != "" %}
-      <a class="btn" href="{{ case_study_url | relative_url }}">See a case study</a>
+      <a class="btn" href="{{ case_study_url | relative_url }}">{{ ui.post_cta_case_study | default: "See a case study" }}</a>
     {% endif %}
   </div>
 </div>

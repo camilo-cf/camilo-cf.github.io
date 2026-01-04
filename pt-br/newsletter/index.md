@@ -3,7 +3,7 @@ layout: single
 title: "Newsletter"
 permalink: /pt-br/newsletter/
 author_profile: false
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "newsletter"
 ref: "newsletter"
 ---

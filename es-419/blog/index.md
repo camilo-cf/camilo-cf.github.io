@@ -74,20 +74,21 @@ ref: "blog-index"
 <div class="blog-rss">
   <a class="btn btn--primary" href="{{ "/feed.xml" | relative_url }}">RSS / Atom</a>
 </div>
-<div id="blog-list-es">
-  {% for post in paginated_posts %}
-    <article class="blog-card" data-categories="{{ post.categories | join: ',' }}" data-tags="{{ post.tags | join: ',' }}">
-      <h2 class="blog-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-      <p class="blog-card__meta">{{ post.date | date: "%B %d, %Y" }} • {% include reading_time.html item=post %}</p>
-      {% if post.description %}
-        <p class="blog-card__excerpt">{{ post.description }}</p>
-      {% endif %}
-      <p class="blog-card__tags"><strong>Categorías:</strong> {{ post.categories | join: ", " }} | <strong>Tags:</strong> {{ post.tags | join: ", " }}</p>
-    </article>
-  {% endfor %}
-</div>
-<p id="blog-empty-es" class="blog-empty" style="display:none;">No hay entradas con esos filtros.</p>
-{% if has_posts == 0 %}
+{% if has_posts > 0 %}
+  <div id="blog-list-es">
+    {% for post in paginated_posts %}
+      <article class="blog-card" data-categories="{{ post.categories | join: ',' }}" data-tags="{{ post.tags | join: ',' }}">
+        <h2 class="blog-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="blog-card__meta">{{ post.date | date: "%B %d, %Y" }} • {% include reading_time.html item=post %}</p>
+        {% if post.description %}
+          <p class="blog-card__excerpt">{{ post.description }}</p>
+        {% endif %}
+        <p class="blog-card__tags"><strong>Categorías:</strong> {{ post.categories | join: ", " }} | <strong>Tags:</strong> {{ post.tags | join: ", " }}</p>
+      </article>
+    {% endfor %}
+  </div>
+  <p id="blog-empty-es" class="blog-empty" style="display:none;">No hay entradas con esos filtros.</p>
+{% else %}
   <div class="blog-empty blog-empty--locale">
     <p>Las entradas en español llegarán pronto. Mientras tanto, visita el <a href="{{ "/en/blog/" | relative_url }}">blog en inglés</a> para ver las últimas publicaciones.</p>
   </div>
