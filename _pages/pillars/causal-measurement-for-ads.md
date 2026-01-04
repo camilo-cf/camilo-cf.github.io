@@ -1,9 +1,14 @@
 ---
 layout: single
 title: "Causal measurement for ads"
-permalink: /pillars/causal-measurement-for-ads/
+permalink: /en/pillars/causal-measurement-for-ads/
+redirect_from:
+  - /pillars/causal-measurement-for-ads/
 author_profile: false
+lang: "en"
+i18n_key: "pillar-ads"
 ---
+{% assign pillar_posts = site.posts | where_exp: "post", "post.categories contains 'causal-measurement-for-ads'" | where: "lang", page.lang | sort: "date" | reverse %}
 
 This pillar focuses on causal inference and experimentation strategies for advertising. It highlights uplift modeling, geo experiments, and measurement pitfalls that surface at scale.
 
@@ -12,8 +17,17 @@ This pillar focuses on causal inference and experimentation strategies for adver
 2. Dive into experimentation design and guardrails.
 3. End with case studies on improving incrementality.
 
+{% assign start_here = pillar_posts | slice: 0,3 %}
+{% if start_here.size > 0 %}
+### Start here
+<ol>
+  {% for post in start_here %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a>{% if post.description %} — {{ post.description }}{% endif %}</li>
+  {% endfor %}
+</ol>
+{% endif %}
+
 ## Posts in this pillar
-{% assign pillar_posts = site.posts | where_exp: "post", "post.categories contains 'causal-measurement-for-ads'" | sort: "date" | reverse %}
 {% if pillar_posts.size > 0 %}
 <ul>
   {% for post in pillar_posts %}

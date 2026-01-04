@@ -7,9 +7,20 @@
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
   <script>
-    if (window.adsbygoogle && window.adsbygoogle.push) {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    }
+    (function() {
+      function tryRender() {
+        if (window.siteConsentState !== "granted") return;
+        if (window.adsbygoogle && window.adsbygoogle.push) {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+      }
+      tryRender();
+      document.addEventListener("consent:update", function(event) {
+        if (event && event.detail && event.detail.state === "granted") {
+          tryRender();
+        }
+      });
+    })();
   </script>
 </div>
 {% endif %}

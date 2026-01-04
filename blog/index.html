@@ -1,24 +1,30 @@
 ---
 layout: single
 title: "Blog"
-permalink: /blog/
+permalink: /en/blog/
+redirect_from:
+  - /blog/
 author_profile: false
+paginate: 10
+lang: "en"
+i18n_key: "blog-index"
 ---
 
 <section class="start-here">
   <h2>Start here</h2>
   <p>Dive into the four pillars that organize the blog. Each link jumps to a curated hub with recommended posts.</p>
   <div class="start-here__grid">
-    <a class="btn btn--primary" href="{{ "/pillars/production-ml-systems-at-scale/" | relative_url }}">Production ML systems at scale</a>
-    <a class="btn btn--primary" href="{{ "/pillars/causal-measurement-for-ads/" | relative_url }}">Causal measurement for ads</a>
-    <a class="btn btn--primary" href="{{ "/pillars/practical-mlops/" | relative_url }}">Practical MLOps</a>
-    <a class="btn btn--primary" href="{{ "/pillars/genai-in-production/" | relative_url }}">GenAI in production</a>
+    <a class="btn btn--primary" href="{{ "/en/pillars/production-ml-systems-at-scale/" | relative_url }}">Production ML systems at scale</a>
+    <a class="btn btn--primary" href="{{ "/en/pillars/causal-measurement-for-ads/" | relative_url }}">Causal measurement for ads</a>
+    <a class="btn btn--primary" href="{{ "/en/pillars/practical-mlops/" | relative_url }}">Practical MLOps</a>
+    <a class="btn btn--primary" href="{{ "/en/pillars/genai-in-production/" | relative_url }}">GenAI in production</a>
   </div>
 </section>
 
+{% assign posts_in_locale = site.posts | where: "lang", page.lang %}
 {% assign category_terms = "" | split: "" %}
 {% assign tag_terms = "" | split: "" %}
-{% for post in site.posts %}
+{% for post in posts_in_locale %}
   {% for category in post.categories %}
     {% unless category_terms contains category %}
       {% assign category_terms = category_terms | push: category %}
@@ -54,7 +60,10 @@ author_profile: false
   </div>
 </section>
 
-{% assign paginated_posts = paginator.posts | default: site.posts %}
+{% assign paginated_posts = paginator.posts | where: "lang", page.lang | default: posts_in_locale %}
+<div class="blog-rss">
+  <a class="btn btn--primary" href="{{ "/feed.xml" | relative_url }}">RSS / Atom feed</a>
+</div>
 <div id="blog-list">
   {% for post in paginated_posts %}
     <article class="blog-card" data-categories="{{ post.categories | join: ',' }}" data-tags="{{ post.tags | join: ',' }}">

@@ -1,0 +1,15 @@
+en:
+  title: "Newsletter and updates"
+  intro: "Stay up to date with new posts, playbooks, and case studies. RSS is the primary subscription channel; email remains optional."
+  rss_label: "Subscribe via RSS/Atom"
+  provider_hint: "Provider embeds can be toggled via configuration. RSS always stays on."
+es-419:
+  title: "Boletín y actualizaciones"
+  intro: "Recibe novedades de posts, guías y casos de estudio. El RSS es el canal principal; el correo es opcional."
+  rss_label: "Suscríbete por RSS/Atom"
+  provider_hint: "Los formularios del proveedor son opcionales y se controlan por configuración. RSS siempre está disponible."
+pt-BR:
+  title: "Newsletter e novidades"
+  intro: "Fique por dentro de posts, guias e estudos de caso. O RSS é o canal principal; email é opcional."
+  rss_label: "Assine via RSS/Atom"
+  provider_hint: "Embeds do provedor são opcionais e controlados por configuração. RSS permanece ativo."

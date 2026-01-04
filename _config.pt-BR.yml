@@ -1,0 +1,12 @@
+lang: "pt-BR"
+locale: "pt-BR"
+title: "Camilo Andrés Cáceres Flórez | Arquiteto de IA"
+description: "Staff ML Engineer e arquiteto de IA com foco em GenAI, MLOps e medição causal para anúncios. Sistemas de produção, experimentos e plataformas confiáveis."
+cta:
+  contact_url: "/pt-br/contato/"
+  subscribe_url: "/pt-br/newsletter/"
+  case_study_url: "/pt-br/casos/"
+  show_case_study: true
+newsletter:
+  provider: "buttondown"
+  fallback_email: "contact@camilo-cf.com"

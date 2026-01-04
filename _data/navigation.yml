@@ -1,27 +1,68 @@
-# main links links
+# Main navigation shared across locales
 main:
-
-  - title: "About me"
-    url: /about_me/
-    
-  - title: "CV"
-    url: /cv/       
-    
-  - title: "Publications"
-    url: /publications/   
-    
-  - title: "Talks/ Conferences"
-    url: /talks/    
-     
-  - title: "Teaching"
-    url: /teaching/
-    
-  #- title: "Portfolio and Projects"
-   # url: /portfolio/
-          
-  - title: "Blog"
-    url: /blog/
-
-  - title: "Pillars"
-    url: /pillars/
-    
+  - key: about
+    titles:
+      default: "About"
+      en: "About"
+      es-419: "Sobre mí"
+      pt-BR: "Sobre mim"
+    urls:
+      default: "/en/about/"
+      en: "/en/about/"
+      es-419: "/es-419/sobre-mi/"
+      pt-BR: "/pt-br/sobre/"
+  - key: cv
+    titles:
+      default: "CV"
+      en: "CV"
+      es-419: "CV"
+      pt-BR: "CV"
+    urls:
+      default: "/en/cv/"
+      en: "/en/cv/"
+      es-419: "/es-419/cv/"
+      pt-BR: "/pt-br/cv/"
+  - key: case-studies
+    titles:
+      default: "Case Studies"
+      en: "Case Studies"
+      es-419: "Casos de estudio"
+      pt-BR: "Estudos de caso"
+    urls:
+      default: "/en/case-studies/"
+      en: "/en/case-studies/"
+      es-419: "/es-419/casos/"
+      pt-BR: "/pt-br/casos/"
+  - key: blog
+    titles:
+      default: "Blog"
+      en: "Blog"
+      es-419: "Blog"
+      pt-BR: "Blog"
+    urls:
+      default: "/en/blog/"
+      en: "/en/blog/"
+      es-419: "/es-419/blog/"
+      pt-BR: "/pt-br/blog/"
+  - key: pillars
+    titles:
+      default: "Pillars"
+      en: "Pillars"
+      es-419: "Pilares"
+      pt-BR: "Pilares"
+    urls:
+      default: "/en/pillars/"
+      en: "/en/pillars/"
+      es-419: "/es-419/pilares/"
+      pt-BR: "/pt-br/pilares/"
+  - key: contact
+    titles:
+      default: "Contact"
+      en: "Contact"
+      es-419: "Contacto"
+      pt-BR: "Contato"
+    urls:
+      default: "/en/contact/"
+      en: "/en/contact/"
+      es-419: "/es-419/contacto/"
+      pt-BR: "/pt-br/contato/"

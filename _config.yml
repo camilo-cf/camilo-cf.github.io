@@ -6,7 +6,9 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
+lang                     : "en"
 locale                   : "en-US"
+supported_locales        : ["en", "es-419", "pt-BR"]
 title                    : "Camilo Andrés Cáceres Flórez"
 title_separator          : "-"
 name                     : &name "Camilo Andrés Cáceres Flórez"
@@ -83,10 +85,10 @@ analytics:
     tracking_id          : ""
 
 cta:
-  contact_url: "/contact/"
+  contact_url: "/en/contact/"
   subscribe_url: "/newsletter/"
-  case_study_url: ""
-  show_case_study: false
+  case_study_url: "/en/case-studies/"
+  show_case_study: true
 
 newsletter:
   provider: "buttondown"
@@ -99,6 +101,7 @@ newsletter:
       <button type="submit" class="btn btn--primary">Subscribe</button>
     </form>
   fallback_email: "contact@camilo-cf.com"
+  primary_locale: "en"
 
 contact:
   alias_email: "contact@camilo-cf.com"
@@ -247,6 +250,8 @@ defaults:
       related: true
       show_ads: true
       show_cta: true
+      lang: "en"
+      i18n_key: ""
   # _pages
   - scope:
       path: ""
@@ -254,6 +259,8 @@ defaults:
     values:
       layout: single
       author_profile: true
+      lang: "en"
+      i18n_key: ""
   # _teaching
   - scope:
       path: ""
@@ -263,6 +270,8 @@ defaults:
       author_profile: true
       share: true
       comments: true
+      lang: "en"
+      i18n_key: ""
   # _publications
   - scope:
       path: ""
@@ -272,6 +281,8 @@ defaults:
       author_profile: true
       share: true
       comments: true
+      lang: "en"
+      i18n_key: ""
   # _portfolio
   - scope:
       path: ""
@@ -281,6 +292,8 @@ defaults:
       author_profile: true
       share: true
       comment: true
+      lang: "en"
+      i18n_key: ""
   # _talks
   - scope:
       path: ""
@@ -289,6 +302,20 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+      lang: "en"
+      i18n_key: ""
+  - scope:
+      path: "en"
+    values:
+      lang: "en"
+  - scope:
+      path: "es-419"
+    values:
+      lang: "es-419"
+  - scope:
+      path: "pt-br"
+    values:
+      lang: "pt-BR"
       
 
 # Sass/SCSS

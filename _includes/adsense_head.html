@@ -7,6 +7,13 @@
     adsenseScript.async = true;
     adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense.client_id | uri_escape }}";
     adsenseScript.crossOrigin = "anonymous";
+    adsenseScript.onload = function () {
+      try {
+        document.dispatchEvent(new CustomEvent("consent:update", { detail: { state: window.siteConsentState || "granted" } }));
+      } catch (e) {
+        // ignore
+      }
+    };
     document.head.appendChild(adsenseScript);
   };
 </script>
