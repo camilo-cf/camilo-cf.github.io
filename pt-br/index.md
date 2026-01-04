@@ -7,6 +7,7 @@ lang: "pt-br"
 i18n_key: "home"
 ref: "home"
 excerpt: "ML em produção, medição causal para ads, MLOps e GenAI."
+description: "Arquiteto de IA e Staff ML Engineer especializado em sistemas de GenAI, MLOps e medição causal para anúncios em produção em escala."
 ---
 
 Projeto e entrego sistemas de ML e GenAI em produção—de anúncios e marketplaces a visão computacional—com foco em confiabilidade, governança e impacto de negócio.

@@ -7,6 +7,7 @@ lang: "pt-br"
 i18n_key: "about"
 ref: "about"
 excerpt: "Perfil executivo e módulos de prova"
+description: "Staff ML Engineer construindo sistemas de IA em produção para anúncios, marketplaces e GenAI. Arquitetura, experimentação e coaching para ML seguro em escala."
 redirect_from:
   - /pt/sobre/
 ---
