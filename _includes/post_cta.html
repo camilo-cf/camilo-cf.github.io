@@ -1,7 +1,14 @@
-{% assign contact_url = site.data.i18n_map.contact[page.lang] | default: site.cta.contact_url | default: "/contact/" %}
-{% assign subscribe_url = site.data.i18n_map.newsletter[page.lang] | default: site.cta.subscribe_url | default: "/newsletter/" %}
-{% assign case_study_map = site.data.i18n_map["case-studies"] %}
-{% assign case_study_url = case_study_map[page.lang] | default: site.cta.case_study_url | default: "" %}
+{% include translation_targets.html ref="contact" locales=page.lang include_x_default=false %}
+{% assign contact_entry = translation_targets | first | default: "" %}
+{% assign contact_url = contact_entry | split: "||" | last | default: site.cta.contact_url | default: "/contact/" %}
+
+{% include translation_targets.html ref="newsletter" locales=page.lang include_x_default=false %}
+{% assign subscribe_entry = translation_targets | first | default: "" %}
+{% assign subscribe_url = subscribe_entry | split: "||" | last | default: site.cta.subscribe_url | default: "/newsletter/" %}
+
+{% include translation_targets.html ref="case-studies" locales=page.lang include_x_default=false %}
+{% assign case_study_entry = translation_targets | first | default: "" %}
+{% assign case_study_url = case_study_entry | split: "||" | last | default: site.cta.case_study_url | default: "" %}
 <div class="post-cta">
   <h3>Continue the conversation</h3>
   <p>Need a sounding board for ML, GenAI, or measurement decisions? Reach out or follow along with new playbooks.</p>

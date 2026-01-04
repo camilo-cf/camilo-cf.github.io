@@ -5,6 +5,7 @@ permalink: /pt-br/cv/
 author_profile: true
 lang: "pt-BR"
 i18n_key: "cv"
+ref: "cv"
 redirect_from:
   - /pt/cv/
 ---

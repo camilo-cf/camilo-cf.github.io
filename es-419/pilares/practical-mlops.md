@@ -5,6 +5,7 @@ permalink: /es-419/pilares/practical-mlops/
 author_profile: false
 lang: "es-419"
 i18n_key: "pillar-mlops"
+ref: "pillar-mlops"
 ---
 {% assign pillar_posts = site.posts | where_exp: "post", "post.categories contains 'practical-mlops'" | where: "lang", page.lang | sort: "date" | reverse %}
 

@@ -5,6 +5,7 @@ permalink: /en/case-studies/ads-incrementality/
 author_profile: false
 lang: "en"
 i18n_key: "case-ads"
+ref: "case-ads"
 description: "Lift measurement with geo experiments, simulations, and creative experimentation guardrails."
 ---
 

@@ -5,6 +5,7 @@ permalink: /pt-br/sobre/
 author_profile: true
 lang: "pt-BR"
 i18n_key: "about"
+ref: "about"
 excerpt: "Perfil executivo e módulos de prova"
 redirect_from:
   - /pt/sobre/

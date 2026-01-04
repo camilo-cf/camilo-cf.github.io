@@ -8,6 +8,7 @@ redirect_from:
 author_profile: false
 lang: "en"
 i18n_key: "pillars-index"
+ref: "pillars-index"
 ---
 
 These four pillars organize the content on production ML, experimentation, MLOps, and GenAI. Each hub includes a recommended reading order and the latest posts tagged for that pillar.

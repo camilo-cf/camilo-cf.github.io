@@ -5,6 +5,7 @@ permalink: /es-419/cv/
 author_profile: true
 lang: "es-419"
 i18n_key: "cv"
+ref: "cv"
 redirect_from:
   - /es/cv/
 ---

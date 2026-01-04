@@ -5,6 +5,7 @@ permalink: /en/background/
 author_profile: true
 lang: "en"
 i18n_key: "background"
+ref: "background"
 excerpt: "Full biography, research, and early work."
 redirect_from:
   - /background/

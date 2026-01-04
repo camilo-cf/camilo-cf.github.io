@@ -5,6 +5,7 @@ permalink: /es-419/newsletter/
 author_profile: false
 lang: "es-419"
 i18n_key: "newsletter"
+ref: "newsletter"
 ---
 
 {% assign locale_copy = site.data.newsletter[page.lang] | default: site.data.newsletter.en %}

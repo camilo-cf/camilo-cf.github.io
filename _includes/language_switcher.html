@@ -1,12 +1,14 @@
-{% assign labels =  site.data.language_labels | default: nil %}
+{% assign labels = site.data.language_labels | default: {} %}
 {% assign locales_source = site.supported_locales | default: site.languages | default: "en" %}
 {% assign locales = locales_source %}
 {% assign locales_json = locales_source | jsonify %}
 {% if locales_json | slice: 0, 1 != "[" %}
   {% assign locales = locales_source | split: "," %}
 {% endif %}
-{% assign key = page.i18n_key | default: "" %}
-{% assign map = site.data.i18n_map[key] %}
+
+{% assign ref_key = page.ref | default: page.i18n_key | default: "" %}
+{% include translation_targets.html ref=ref_key locales=locales %}
+
 {% assign current_locale = page.lang | default: site.lang | default: locales.first %}
 {% unless locales contains current_locale or current_locale == "x-default" %}
   {% assign current_locale = locales.first %}
@@ -28,26 +30,21 @@
   </summary>
 
   <div class="lang-switcher__panel" role="list">
-    {% if map and map["x-default"] %}
-      <a class="lang-switcher__option" href="{{ map["x-default"] | relative_url }}" {% if page.lang == "x-default" %}aria-current="page"{% endif %} role="listitem">
-        <span class="lang-switcher__code">XD</span>
-        <span class="lang-switcher__label">
-          <strong>Global</strong>
-          <small class="lang-switcher__hint">Neutral landing, no tracking</small>
-        </span>
-      </a>
-    {% endif %}
-
-    {% for locale in locales %}
+    {% for entry in translation_targets %}
+      {% assign parts = entry | split: "||" %}
+      {% assign locale = parts[0] %}
+      {% assign target = parts[1] %}
       {% assign locale_label = labels[locale] | default: locale %}
-      {% assign target = nil %}
-      {% if map and map[locale] %}{% assign target = map[locale] %}{% endif %}
-      {% unless target %}
-        {% assign target = "/" | append: locale | append: "/" %}
-      {% endunless %}
+
       {% assign locale_code = locale | split: "-" | last | upcase %}
       {% if locale == "en" %}{% assign locale_code = "EN" %}{% endif %}
       {% if locale == "es-419" %}{% assign locale_code = "ES" %}{% endif %}
+      {% if locale == "x-default" %}{% assign locale_code = "XD" %}{% endif %}
+
+      {% if locale == "x-default" %}
+        {% assign locale_label = locale_label | default: "Global" %}
+      {% endif %}
+
       <a class="lang-switcher__option {% if page.lang == locale %}is-active{% endif %}" href="{{ target | relative_url }}" {% if page.lang == locale %}aria-current="page"{% endif %} role="listitem">
         <span class="lang-switcher__code">{{ locale_code }}</span>
         <span class="lang-switcher__label">

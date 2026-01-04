@@ -5,6 +5,7 @@ permalink: /es-419/sobre-mi/
 author_profile: true
 lang: "es-419"
 i18n_key: "about"
+ref: "about"
 excerpt: "Perfil ejecutivo y módulos de credibilidad"
 redirect_from:
   - /es/sobre-mi/

@@ -7,6 +7,7 @@ paginate: 10
 locale_paginate: true
 lang: "pt-BR"
 i18n_key: "blog-index"
+ref: "blog-index"
 ---
 
 <section class="start-here">
@@ -38,6 +39,17 @@ i18n_key: "blog-index"
 {% assign category_terms = category_terms | sort %}
 {% assign tag_terms = tag_terms | sort %}
 
+{% assign paginated_posts = posts_in_locale %}
+{% assign paginator_matches_locale = false %}
+{% if paginator and paginator.posts %}
+  {% assign localized_count = paginator.posts | where: "lang", page.lang | size %}
+  {% if localized_count == paginator.posts | size %}
+    {% assign paginator_matches_locale = true %}
+    {% assign paginated_posts = paginator.posts %}
+  {% endif %}
+{% endif %}
+{% assign has_posts = paginated_posts | size %}
+
 <section class="blog-filters">
   <h3>Filtrar posts</h3>
   <div class="blog-filters__controls">
@@ -59,7 +71,6 @@ i18n_key: "blog-index"
   </div>
 </section>
 
-{% assign paginated_posts = paginator.posts | where: "lang", page.lang | default: posts_in_locale %}
 <div class="blog-rss">
   <a class="btn btn--primary" href="{{ "/feed.xml" | relative_url }}">RSS / Atom</a>
 </div>
@@ -76,8 +87,13 @@ i18n_key: "blog-index"
   {% endfor %}
 </div>
 <p id="blog-empty-pt" class="blog-empty" style="display:none;">Nenhum post combina com os filtros.</p>
+{% if has_posts == 0 %}
+  <div class="blog-empty blog-empty--locale">
+    <p>Os posts em português chegarão em breve. Enquanto isso, visite o <a href="{{ "/en/blog/" | relative_url }}">blog em inglês</a> para ver as novidades.</p>
+  </div>
+{% endif %}
 
-{% if paginator and paginator.total_pages > 1 %}
+{% if paginator_matches_locale and paginator and paginator.total_pages > 1 and has_posts > 0 %}
   <nav class="pagination" role="navigation">
     {% if paginator.previous_page %}
       <a class="pagination__item pagination__item--prev" href="{{ paginator.previous_page_path | relative_url }}">&laquo; Anterior</a>
@@ -115,12 +131,12 @@ i18n_key: "blog-index"
           visibleCount += 1;
         }
       });
-      if (emptyState) {
-        emptyState.style.display = visibleCount === 0 ? "" : "none";
-      }
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? "" : "none";
     }
+  }
 
-    if (categoryFilter && tagFilter) {
+    if (categoryFilter && tagFilter && cards.length > 0) {
       categoryFilter.addEventListener("change", applyFilters);
       tagFilter.addEventListener("change", applyFilters);
       applyFilters();

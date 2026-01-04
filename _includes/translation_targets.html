@@ -1,0 +1,47 @@
+{% comment %}
+Builds a list of translation targets for the provided ref across configured locales.
+Outputs an array named `translation_targets` with entries in the format "locale||url".
+Params:
+- ref: reference key shared by localized siblings
+- locales (optional): array or comma-separated list of locales to include
+- include_x_default (optional): set to false to skip x-default
+{% endcomment %}
+{% assign locales_source = include.locales | default: site.supported_locales | default: site.languages | default: "en" %}
+{% assign translation_locales = locales_source %}
+{% assign locales_json = locales_source | jsonify %}
+{% if locales_json | slice: 0, 1 != "[" %}
+  {% assign translation_locales = locales_source | split: "," %}
+{% endif %}
+{% if include.include_x_default != false %}
+  {% assign translation_locales = translation_locales | unshift: "x-default" %}
+{% endif %}
+
+{% assign documents = site.pages %}
+{% for collection in site.collections %}
+  {% assign documents = documents | concat: collection.docs %}
+{% endfor %}
+
+{% assign home_candidates = documents | where: "ref", "home" %}
+{% assign translation_targets = "" | split: "" %}
+{% for locale in translation_locales %}
+  {% assign target_doc = documents | where: "ref", include.ref | where: "lang", locale | first %}
+  {% assign target_url = target_doc.url | default: target_doc.permalink %}
+
+  {% unless target_url %}
+    {% assign home_doc = home_candidates | where: "lang", locale | first %}
+    {% if home_doc %}
+      {% assign target_url = home_doc.url | default: home_doc.permalink %}
+    {% endif %}
+  {% endunless %}
+
+  {% unless target_url %}
+    {% if locale == "x-default" %}
+      {% assign target_url = "/" %}
+    {% else %}
+      {% assign target_url = "/" | append: locale | append: "/" %}
+    {% endif %}
+  {% endunless %}
+
+  {% assign entry = locale | append: "||" | append: target_url %}
+  {% assign translation_targets = translation_targets | push: entry %}
+{% endfor %}

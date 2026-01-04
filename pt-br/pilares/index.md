@@ -5,6 +5,7 @@ permalink: /pt-br/pilares/
 author_profile: false
 lang: "pt-BR"
 i18n_key: "pillars-index"
+ref: "pillars-index"
 ---
 
 Quatro pilares organizam o conteúdo sobre ML em produção, experimentação, MLOps e GenAI.

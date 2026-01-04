@@ -12,6 +12,7 @@ tags:
 permalink: /es-419/blog/mlops-platform-guardrails/
 lang: "es-419"
 i18n_key: "post-mlops-anchor"
+ref: "mlops-platform-guardrails"
 show_ads: true
 show_cta: true
 ---

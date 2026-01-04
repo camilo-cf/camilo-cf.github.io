@@ -5,6 +5,7 @@ permalink: /pt-br/casos/platform-guardrails/
 author_profile: false
 lang: "pt-BR"
 i18n_key: "case-guardrails"
+ref: "case-guardrails"
 description: "Contratos de entrega, observabilidade padrão e planos de rollback."
 ---
 

@@ -5,6 +5,7 @@ permalink: /pt-br/contato/
 author_profile: false
 lang: "pt-BR"
 i18n_key: "contact"
+ref: "contact"
 ---
 
 Formas rápidas de falar comigo sem expor e-mails pessoais.
