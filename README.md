@@ -25,13 +25,13 @@ See more info at https://academicpages.github.io/
 - **SEO**: `jekyll-seo-tag` is enabled. Populate `_config.yml` with `title`, `description`, `url`, `logo`, `avatar`, `twitter_username`, and `social.links` for correct meta tags and JSON-LD output.
 - **Pagination**: `jekyll-paginate` is configured for `/blog/` with `paginate: 10` and `paginate_path: "/blog/page:num"`.
 - **CTA**: Configure `cta.contact_url`, `cta.subscribe_url`, `cta.case_study_url`, and `cta.show_case_study` to drive the post-level call-to-action buttons.
-- **Newsletter**: Set `newsletter.provider`, `newsletter.form_action`, or `newsletter.embed_html` for hosted forms. `newsletter.fallback_email` powers the mailto-based fallback.
+- **Newsletter**: Set `newsletter.provider`, `newsletter.form_action`, or `newsletter.embed_html` for hosted forms. RSS/Atom is always available at `/feed.xml`; no emails are stored locally.
 - **AdSense**: Controlled via `adsense.enabled`, `adsense.client_id`, `adsense.publisher_id`, and `adsense.slot_ids.post_top`/`post_bottom`. Ads stay off until enabled and consented.
 - **Consent**: The cookie banner defaults to opt-out and blocks analytics/ads until accepted. Customize labels and links under `consent_banner`.
 
 ## Verification checklist
 
-- `sitemap.xml` and `feed.xml` are generated.
+- `sitemap.xml` and `feed.xml` are generated (after `bundle exec jekyll build`, check `_site/sitemap.xml` and `_site/feed.xml`).
 - SEO meta tags (Open Graph + JSON-LD) render via `{% seo %}`.
 - `/blog/` paginates and supports category/tag filters; pillar pages list matching posts.
 - Reading time, related posts, and CTAs appear on post pages.

@@ -78,21 +78,33 @@ social:
 
 # Analytics
 analytics:
-  provider               : "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               : false # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : "UA-135514315-1"
+    tracking_id          : ""
 
 cta:
-  contact_url: "mailto:camilo.caceresf@gmail.com"
+  contact_url: "/contact/"
   subscribe_url: "/newsletter/"
   case_study_url: ""
   show_case_study: false
 
 newsletter:
-  provider: "mailto"
+  provider: "buttondown"
   form_action: ""
-  embed_html: ""
-  fallback_email: "camilo.caceresf@gmail.com"
+  embed_html: |
+    <form action="https://buttondown.email/api/emails/embed-subscribe/camilo-cf" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/camilo-cf', 'popupwindow')">
+      <label for="bd-email">Email</label>
+      <input type="email" name="email" id="bd-email" required>
+      <p class="newsletter-form__hint">Buttondown handles double opt-in and email storage.</p>
+      <button type="submit" class="btn btn--primary">Subscribe</button>
+    </form>
+  fallback_email: "contact@camilo-cf.com"
+
+contact:
+  alias_email: "contact@camilo-cf.com"
+  formspree_endpoint: ""
+  linkedin_url: "https://www.linkedin.com/in/camilocaceresf"
+  scheduling_url: ""
 
 adsense:
   enabled: false
@@ -104,11 +116,11 @@ adsense:
 
 consent_banner:
   enabled: true
-  message: "This site uses cookies to personalize content and to remember your preferences. Ads and analytics stay off until you accept."
+  message: "This site uses cookies to remember your preferences. Ads and analytics stay off until you accept. See the cookies and privacy pages for details."
   accept_text: "Accept"
   reject_text: "Reject"
   learn_more_text: "Learn more"
-  learn_more_url: "/privacy/"
+  learn_more_url: "/cookies/"
   storage_key: "site_consent"
   default_consent: "denied"
 
@@ -121,7 +133,7 @@ author:
   location         : "Bogotá, Colombia"
   employer         : "Mercado Libre"
   googlescholar    : "https://scholar.google.com/citations?hl=en&user=325XocAAAAAJ&view_op=list_works&authuser=2"
-  email            : "camilo.caceresf@gmail.com"
+  email            : "contact@camilo-cf.com"
   uri              :
   bitbucket        :
   codepen          :

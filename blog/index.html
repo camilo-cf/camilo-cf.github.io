@@ -9,7 +9,7 @@ author_profile: false
   <h2>Start here</h2>
   <p>Dive into the four pillars that organize the blog. Each link jumps to a curated hub with recommended posts.</p>
   <div class="start-here__grid">
-    <a class="btn btn--primary" href="{{ "/pillars/ads-ml-systems-at-scale/" | relative_url }}">Ads ML systems at scale</a>
+    <a class="btn btn--primary" href="{{ "/pillars/production-ml-systems-at-scale/" | relative_url }}">Production ML systems at scale</a>
     <a class="btn btn--primary" href="{{ "/pillars/causal-measurement-for-ads/" | relative_url }}">Causal measurement for ads</a>
     <a class="btn btn--primary" href="{{ "/pillars/practical-mlops/" | relative_url }}">Practical MLOps</a>
     <a class="btn btn--primary" href="{{ "/pillars/genai-in-production/" | relative_url }}">GenAI in production</a>
@@ -67,6 +67,7 @@ author_profile: false
     </article>
   {% endfor %}
 </div>
+<p id="blog-empty" class="blog-empty" style="display:none;">No posts match the selected filters yet. Try resetting the filters.</p>
 
 {% if paginator and paginator.total_pages > 1 %}
   <nav class="pagination" role="navigation">
@@ -85,6 +86,7 @@ author_profile: false
     var categoryFilter = document.getElementById("category-filter");
     var tagFilter = document.getElementById("tag-filter");
     var cards = Array.prototype.slice.call(document.querySelectorAll(".blog-card"));
+    var emptyState = document.getElementById("blog-empty");
 
     function matchesFilter(card, filterEl, key) {
       var value = filterEl.value;
@@ -95,16 +97,25 @@ author_profile: false
     }
 
     function applyFilters() {
+      var visibleCount = 0;
       cards.forEach(function(card) {
         var categoryMatch = matchesFilter(card, categoryFilter, "categories");
         var tagMatch = matchesFilter(card, tagFilter, "tags");
-        card.style.display = (categoryMatch && tagMatch) ? "" : "none";
+        var shouldShow = categoryMatch && tagMatch;
+        card.style.display = shouldShow ? "" : "none";
+        if (shouldShow) {
+          visibleCount += 1;
+        }
       });
+      if (emptyState) {
+        emptyState.style.display = visibleCount === 0 ? "" : "none";
+      }
     }
 
     if (categoryFilter && tagFilter) {
       categoryFilter.addEventListener("change", applyFilters);
       tagFilter.addEventListener("change", applyFilters);
+      applyFilters();
     }
   })();
 </script>
