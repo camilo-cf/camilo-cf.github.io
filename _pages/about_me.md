@@ -7,7 +7,11 @@ redirect_from:
 
 ---
  
- I received my B.S. in Mechatronics Engineering at Military University Nueva Granada (UMNG) (Bogotá, Colombia) in 2014. There I worked on the GAV research laboratory from my third year of engineering (since 2012). In 2012, I worked in the image processing area with the Microsoft Kinect, using it as a sensor for a fuzzy control of a multi-tank system ([Multi-tank fuzzy level control system using Kinect](https://ieeexplore.ieee.org/abstract/document/6524599/) ), this work what was presented in the Conference of  Electronics, Robotics and Automotive Mechanics(CERMA) 2012. 
+ I’m a Staff ML Engineer (Applied AI), Data Science Expert, and AI Architect leading GenAI and MLOps systems at scale. My recent work centers on production ML for ads, graph neural networks, and end-to-end platforms: from experimentation and CI/CD/CT to observability, reusable components, and multi-market redeployments. I hold a Ph.D. in Mechanical Engineering (Mechatronics) from UNICAMP and an EMBA in Strategic Leadership from Valar Institute.
+ 
+ I currently lead display ads ML components, deep learning predictive models, optimization, and ETL pipelines at Mercado Libre. Before that I drove ML architecture standards, GNN deployments, and technical workshops as a Principal Data Scientist & ML Engineer at AB InBev. Earlier roles include Principal ML Scientist/Engineer (leading SOTA model improvements and generative AI initiatives), Principal MLOps/ML Engineer and Sr MLOps Engineer (building reusable components and CI/CD/CT practices), Data Scientist at DANE, and ML Engineer/Developer at Spectra Ingeniería.
+ 
+ Prior to industry, I spent six years as a researcher at UNICAMP working on mechatronics, AI, and assistive robotics (including a visiting Ph.D. term at École Centrale de Paris). I received my B.S. in Mechatronics Engineering from Military University Nueva Granada (UMNG) in Bogotá, where I contributed to projects spanning image processing, control systems, and HIL experimentation. My academic publications are listed on [Google Scholar](https://scholar.google.com/citations?user=325XocAAAAAJ&hl=es), which I keep up to date.
  
  Then in 2013, I was working in the [Design and construction of a prototype rehabilitation machine to hand and wrist](https://ieeexplore.ieee.org/abstract/document/6682785/) what is documented in the video below (click on the image).
  
@@ -57,9 +61,7 @@ redirect_from:
   
   In 2017, I presented the [Approach of Kinematic Control for a Nonholonomic Wheeled Robot using Artificial Neural Networks and Genetic Algorithms](https://ieeexplore.ieee.org/abstract/document/7985533/) work in the 2017 International Conference and Workshop on Bioinspired Intelligence (IWOBI) in Portugal, because of that paper the proposal was improved giving as result a work what will be published soon, *Control Structure for a Car-like Robot using Artificial Neural Networks and Genetic Algorithms* in the Springer Journal Neural Computing and Applications. And recently other accepted paper, *Design, Simulation, and Control of an Omnidirectional Mobile Robot* in the IREME journal.
   
-  In 2020, I finished my Ph.D. thesis on the area of Data Science, AO and  IoT/4.0, operational research, RL, Optimization and Healthcare systems. 
-  
-  Currently, I work as machine learning developer.
+  In 2020, I finished my Ph.D. thesis on the area of Data Science, AO and  IoT/4.0, operational research, RL, Optimization and Healthcare systems. These experiences laid the groundwork for my current focus on applied AI, MLOps, and generative AI leadership in industry.
   
   
   
