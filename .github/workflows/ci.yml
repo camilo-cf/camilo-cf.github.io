@@ -52,7 +52,7 @@ jobs:
     - name: Install dependencies
       run: |
         npm install -D @playwright/test http-server
-        npx playwright install --with-deps chromium
+        npx playwright install chromium
 
     - name: Serve site and run tests
       run: |
