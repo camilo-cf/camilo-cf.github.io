@@ -1,0 +1,13 @@
+{% assign plausible = site.analytics.plausible %}
+{% if plausible.domain %}
+  <script>
+    window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+    window.__plausibleConfig = {
+      domain: "{{ plausible.domain }}",
+      apiHost: "{{ plausible.api_host | default: 'https://plausible.io' }}",
+      requireConsent: {{ plausible.require_consent | default: false | jsonify }},
+      manual: {{ plausible.manual | default: false | jsonify }},
+      trackLocalhost: {{ plausible.track_localhost | default: false | jsonify }}
+    };
+  </script>
+{% endif %}

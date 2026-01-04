@@ -23,7 +23,19 @@ breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
+  provider               : giscus # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom", "giscus"
+  giscus:
+    repo                 : "camilo-cf/camilo-cf.github.io"
+    repo_id              : ""
+    category             : "Announcements"
+    category_id          : ""
+    mapping              : "pathname"
+    reactions_enabled    : "1"
+    emit_metadata        : "0"
+    theme                : "preferred_color_scheme"
+    lang                 : "en"
+    crossorigin          : "anonymous"
+    lazy                 : true
   disqus:
     shortname            :
   discourse:
@@ -80,9 +92,14 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
+  provider               : plausible # false (default), "google", "google-universal", "custom", "plausible"
   google:
     tracking_id          : ""
+  plausible:
+    domain               : "camilo-cf.github.io"
+    api_host             : "https://plausible.io"
+    require_consent      : true
+    manual               : false
 
 cta:
   contact_url: "/en/contact/"
@@ -91,15 +108,11 @@ cta:
   show_case_study: true
 
 newsletter:
-  provider: "buttondown"
-  form_action: ""
+  provider: "substack"
+  substack_publication: "camilo-cf" # update to your Substack handle (e.g., https://YOUR-HANDLE.substack.com)
   embed_html: |
-    <form action="https://buttondown.email/api/emails/embed-subscribe/camilo-cf" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/camilo-cf', 'popupwindow')">
-      <label for="bd-email">Email</label>
-      <input type="email" name="email" id="bd-email" required>
-      <p class="newsletter-form__hint">Buttondown handles double opt-in and email storage.</p>
-      <button type="submit" class="btn btn--primary">Subscribe</button>
-    </form>
+    <iframe src="https://camilo-cf.substack.com/embed" width="100%" height="320" style="border:1px solid #e5e7eb; background:#fff;" frameborder="0" scrolling="no" title="Substack subscription"></iframe>
+    <p class="newsletter-form__hint">Delivered via Substack. You can unsubscribe at any time.</p>
   fallback_email: "contact@camilo-cf.com"
   primary_locale: "en"
 

@@ -19,7 +19,15 @@ layout: compress
         acceptText: "{{ site.consent_banner.accept_text | default: "Accept" }}",
         rejectText: "{{ site.consent_banner.reject_text | default: "Reject" }}",
         learnMoreText: "{{ site.consent_banner.learn_more_text | default: "Learn more" }}",
+        analyticsProvider: "{{ site.analytics.provider | default: "" }}",
         analyticsId: "{{ site.analytics.google.tracking_id | default: "" }}",
+        plausible: {
+          domain: "{{ site.analytics.plausible.domain | default: "" }}",
+          apiHost: "{{ site.analytics.plausible.api_host | default: "https://plausible.io" }}",
+          requireConsent: {{ site.analytics.plausible.require_consent | default: false | jsonify }},
+          manual: {{ site.analytics.plausible.manual | default: false | jsonify }},
+          trackLocalhost: {{ site.analytics.plausible.track_localhost | default: false | jsonify }}
+        },
         adsense: {
           enabled: {{ site.adsense.enabled | default: false | jsonify }},
           clientId: "{{ site.adsense.client_id }}",
