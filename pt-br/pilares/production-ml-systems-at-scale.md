@@ -3,7 +3,7 @@ layout: single
 title: "Sistemas de ML em produção em escala"
 permalink: /pt-br/pilares/production-ml-systems-at-scale/
 author_profile: false
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "pillar-production"
 ref: "pillar-production"
 ---

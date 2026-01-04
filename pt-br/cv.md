@@ -3,7 +3,7 @@ layout: archive
 title: "CV"
 permalink: /pt-br/cv/
 author_profile: true
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "cv"
 ref: "cv"
 redirect_from:

@@ -3,7 +3,7 @@ layout: single
 title: "Guardrails de plataforma para serviços de ML"
 permalink: /pt-br/casos/platform-guardrails/
 author_profile: false
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "case-guardrails"
 ref: "case-guardrails"
 description: "Contratos de entrega, observabilidade padrão e planos de rollback."

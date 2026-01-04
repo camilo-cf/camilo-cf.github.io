@@ -5,7 +5,7 @@ permalink: /pt-br/blog/
 author_profile: false
 paginate: 10
 locale_paginate: true
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "blog-index"
 ref: "blog-index"
 ---

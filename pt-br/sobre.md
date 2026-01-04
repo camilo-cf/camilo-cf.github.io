@@ -3,7 +3,7 @@ layout: single
 title: "Sobre mim"
 permalink: /pt-br/sobre/
 author_profile: true
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "about"
 ref: "about"
 excerpt: "Perfil executivo e módulos de prova"

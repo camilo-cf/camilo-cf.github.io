@@ -10,7 +10,7 @@ tags:
   - safety
   - governance
 permalink: /pt-br/blog/genai-evaluation-blueprint/
-lang: "pt-BR"
+lang: "pt-br"
 i18n_key: "post-genai-anchor"
 ref: "genai-evaluation-blueprint"
 show_ads: true
