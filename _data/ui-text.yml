@@ -44,6 +44,9 @@ en: &DEFAULT_EN
   post_cta_contact           : "Contact"
   post_cta_subscribe         : "Subscribe via RSS or email"
   post_cta_case_study        : "See a case study"
+  footer_privacy_label       : "Privacy"
+  footer_cookies_label       : "Cookies"
+  footer_newsletter_label    : "Newsletter"
 en-US:
   <<: *DEFAULT_EN
 en-CA:
@@ -97,6 +100,9 @@ es: &DEFAULT_ES
   post_cta_contact           : "Contacto"
   post_cta_subscribe         : "Suscríbete vía RSS o email"
   post_cta_case_study        : "Ver un caso de estudio"
+  footer_privacy_label       : "Privacidad"
+  footer_cookies_label       : "Cookies"
+  footer_newsletter_label    : "Newsletter"
 es-ES:
   <<: *DEFAULT_ES
 es-CO:
@@ -236,6 +242,9 @@ pt: &DEFAULT_PT
   post_cta_contact           : "Contato"
   post_cta_subscribe         : "Assine via RSS ou email"
   post_cta_case_study        : "Ver um estudo de caso"
+  footer_privacy_label       : "Privacidade"
+  footer_cookies_label       : "Cookies"
+  footer_newsletter_label    : "Newsletter"
 pt-br:
   <<: *DEFAULT_PT
 pt-BR:

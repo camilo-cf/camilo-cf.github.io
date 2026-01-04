@@ -21,10 +21,29 @@
   </ul>
 </div>
 
+{% comment %}Locale-aware footer navigation{% endcomment %}
+{% assign current_lang = page.lang | default: site.lang | default: "en" %}
+{% assign ui = site.data.ui-text[current_lang] | default: site.data.ui-text["en"] %}
+
+{% comment %}Build locale-specific URLs for footer links{% endcomment %}
+{% if current_lang == "es-419" %}
+  {% assign privacy_url = "/es-419/privacidad/" %}
+  {% assign cookies_url = "/es-419/cookies/" %}
+  {% assign newsletter_url = "/es-419/newsletter/" %}
+{% elsif current_lang == "pt-br" or current_lang == "pt-BR" %}
+  {% assign privacy_url = "/pt-br/privacidade/" %}
+  {% assign cookies_url = "/pt-br/cookies/" %}
+  {% assign newsletter_url = "/pt-br/newsletter/" %}
+{% else %}
+  {% assign privacy_url = "/privacy/" %}
+  {% assign cookies_url = "/cookies/" %}
+  {% assign newsletter_url = "/newsletter/" %}
+{% endif %}
+
 <div class="page__footer-nav">
-  <a href="{{ "/privacy/" | prepend: base_path }}">Privacy</a> |
-  <a href="{{ "/cookies/" | prepend: base_path }}">Cookies</a> |
-  <a href="{{ "/newsletter/" | prepend: base_path }}">Newsletter</a>
+  <a href="{{ privacy_url | prepend: base_path }}">{{ ui.footer_privacy_label | default: "Privacy" }}</a> |
+  <a href="{{ cookies_url | prepend: base_path }}">{{ ui.footer_cookies_label | default: "Cookies" }}</a> |
+  <a href="{{ newsletter_url | prepend: base_path }}">{{ ui.footer_newsletter_label | default: "Newsletter" }}</a>
 </div>
 
 <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
