@@ -3,7 +3,7 @@ layout: single
 title: "Welcome"
 permalink: /
 author_profile: false
-lang: "en"
+lang: "x-default"
 i18n_key: "home"
 excerpt: "Choose your language to explore the site."
 ---
