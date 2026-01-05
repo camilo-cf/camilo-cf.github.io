@@ -1,0 +1,28 @@
+---
+layout: null
+---
+[
+  {% for post in site.posts %}
+    {
+      "title": {{ post.title | jsonify }},
+      "description": {{ post.description | jsonify }},
+      "url": {{ post.url | relative_url | jsonify }},
+      "date": "{{ post.date | date: "%B %d, %Y" }}",
+      "categories": {{ post.categories | jsonify }},
+      "tags": {{ post.tags | jsonify }},
+      "lang": {{ post.lang | default: "en" | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ,
+  {% for page in site.pages %}
+    {% if page.title and page.lang and page.description %}
+    {
+      "title": {{ page.title | jsonify }},
+      "description": {{ page.description | jsonify }},
+      "url": {{ page.url | relative_url | jsonify }},
+      "lang": {{ page.lang | jsonify }},
+      "type": "page"
+    }{% unless forloop.last %},{% endunless %}
+    {% endif %}
+  {% endfor %}
+]

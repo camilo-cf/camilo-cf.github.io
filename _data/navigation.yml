@@ -22,6 +22,17 @@ main:
       en: "/en/blog/"
       es-419: "/es-419/blog/"
       pt-br: "/pt-br/blog/"
+  - key: search
+    titles:
+      default: "Search"
+      en: "Search"
+      es-419: "Buscar"
+      pt-br: "Busca"
+    urls:
+      default: "/en/search/"
+      en: "/en/search/"
+      es-419: "/es-419/buscar/"
+      pt-br: "/pt-br/busca/"
   - key: pillars
     titles:
       default: "Pillars"

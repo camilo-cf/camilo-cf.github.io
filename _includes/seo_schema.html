@@ -12,22 +12,39 @@ Schema.org structured data for Person/Professional
   "description": "{{ site.description }}",
   "url": "{{ site.url }}{{ site.baseurl }}",
   "image": "{{ site.url }}{{ site.baseurl }}{{ site.avatar }}",
-  "sameAs": [
-    {% if site.author.linkedin %}"https://www.linkedin.com/in/{{ site.author.linkedin }}"{% if site.author.github or site.author.googlescholar %},{% endif %}{% endif %}
-    {% if site.author.github %}"https://github.com/{{ site.author.github }}"{% if site.author.googlescholar %},{% endif %}{% endif %}
-    {% if site.author.googlescholar %}"{{ site.author.googlescholar }}"{% endif %}
-  ],
-  "alumniOf": {
+  "worksFor": {
     "@type": "Organization",
-    "name": "UNICAMP"
+    "name": "Mercado Libre"
   },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "BR"
+  },
+  "sameAs": [
+    {% if site.author.linkedin %}"https://www.linkedin.com/in/{{ site.author.linkedin }}"{% if site.author.github or site.author.googlescholar or site.author.youtube %},{% endif %}{% endif %}
+    {% if site.author.github %}"https://github.com/{{ site.author.github }}"{% if site.author.googlescholar or site.author.youtube %},{% endif %}{% endif %}
+    {% if site.author.googlescholar %}"{{ site.author.googlescholar }}"{% if site.author.youtube %},{% endif %}{% endif %}
+    {% if site.author.youtube %}"{{ site.author.youtube }}"{% endif %}
+  ],
+  "alumniOf": [
+    {
+      "@type": "Organization",
+      "name": "UNICAMP"
+    },
+    {
+      "@type": "Organization",
+      "name": "Valar Institute"
+    }
+  ],
   "knowsAbout": [
     "Machine Learning",
     "Artificial Intelligence",
     "MLOps",
     "Causal Measurement",
     "GenAI",
-    "Production ML Systems"
+    "Production ML Systems",
+    "Ads Measurement",
+    "ML Platform Engineering"
   ]
 }
 </script>
