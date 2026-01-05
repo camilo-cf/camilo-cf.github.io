@@ -202,7 +202,8 @@ test.describe('Navigation', () => {
 
 test.describe('SEO - Redirect Pages', () => {
   test('/cv/ redirect has noindex meta tag', async ({ page }) => {
-    await page.goto(`${BASE_URL}/cv/`);
+    // Navigate and wait for initial load (before meta refresh redirect happens)
+    await page.goto(`${BASE_URL}/cv/`, { waitUntil: 'domcontentloaded' });
 
     // Check for noindex,follow meta tag
     const noindexMeta = page.locator('meta[name="robots"][content*="noindex"]');
