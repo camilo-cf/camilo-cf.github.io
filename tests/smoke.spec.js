@@ -119,7 +119,7 @@ test.describe('Meta Descriptions (SEO)', () => {
 
       const content = await metaDescription.getAttribute('content');
       expect(content).toBeTruthy();
-      expect(content!.length).toBeGreaterThan(50); // Meaningful description
+      expect(content.length).toBeGreaterThan(50); // Meaningful description
 
       // Title should match expected pattern
       await expect(page).toHaveTitle(page_info.expectedInTitle);
