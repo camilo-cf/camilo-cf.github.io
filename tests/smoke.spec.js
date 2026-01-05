@@ -199,3 +199,61 @@ test.describe('Navigation', () => {
     await expect(page).toHaveURL(/\/en\/search\//);
   });
 });
+
+test.describe('SEO - Redirect Pages', () => {
+  test('/cv/ redirect has noindex meta tag', async ({ page }) => {
+    await page.goto(`${BASE_URL}/cv/`);
+
+    // Check for noindex,follow meta tag
+    const noindexMeta = page.locator('meta[name="robots"][content*="noindex"]');
+    await expect(noindexMeta).toHaveCount(1);
+
+    // Check for canonical tag pointing to destination
+    const canonicalLink = page.locator('link[rel="canonical"]');
+    await expect(canonicalLink).toHaveCount(1);
+    const href = await canonicalLink.getAttribute('href');
+    expect(href).toContain('/en/cv/');
+  });
+});
+
+test.describe('SEO - Hreflang & OpenGraph', () => {
+  test('Homepage has hreflang tags for all locales', async ({ page }) => {
+    await page.goto(`${BASE_URL}/en/`);
+
+    // Should have hreflang tags for en, es-419, pt-br, and x-default
+    const hreflangLinks = page.locator('link[rel="alternate"][hreflang]');
+    const count = await hreflangLinks.count();
+    expect(count).toBeGreaterThanOrEqual(3); // At least EN, ES, PT
+
+    // Should have x-default
+    const xDefault = page.locator('link[rel="alternate"][hreflang="x-default"]');
+    await expect(xDefault).toHaveCount(1);
+  });
+
+  test('Homepage has OpenGraph meta tags', async ({ page }) => {
+    await page.goto(`${BASE_URL}/en/`);
+
+    // Check for essential OG tags
+    const ogTitle = page.locator('meta[property="og:title"]');
+    await expect(ogTitle).toHaveCount(1);
+
+    const ogDescription = page.locator('meta[property="og:description"]');
+    await expect(ogDescription).toHaveCount(1);
+
+    const ogImage = page.locator('meta[property="og:image"]');
+    await expect(ogImage).toHaveCount(1);
+  });
+
+  test('Homepage has JSON-LD Person schema', async ({ page }) => {
+    await page.goto(`${BASE_URL}/en/`);
+
+    // Check for JSON-LD script
+    const jsonLd = page.locator('script[type="application/ld+json"]');
+    await expect(jsonLd).toHaveCount(1);
+
+    // Verify it contains Person schema
+    const content = await jsonLd.textContent();
+    expect(content).toContain('"@type": "Person"');
+    expect(content).toContain('Staff ML Engineer');
+  });
+});
