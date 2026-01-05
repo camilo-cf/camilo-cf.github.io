@@ -1,0 +1,60 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} - Redirecting...</title>
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="{{ page.redirect_to | absolute_url }}">
+  <meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 2rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .redirect-box {
+      background: #f7f7f7;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .redirect-box__icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #0073e6;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      background: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <div class="redirect-box">
+    <div class="redirect-box__icon">→</div>
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.message | default: "This page has moved to a new location." }}</p>
+    <p><strong>You will be redirected automatically in a moment.</strong></p>
+    <a href="{{ page.redirect_to | relative_url }}" class="btn">Continue to {{ page.redirect_to }}</a>
+  </div>
+  <footer style="margin-top: 3rem; color: #666; font-size: 0.9rem;">
+    <p>Camilo Cáceres - Staff ML Engineer & AI Architect</p>
+    <p><a href="/" style="color: #0073e6;">← Back to homepage</a></p>
+  </footer>
+</body>
+</html>

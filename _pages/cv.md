@@ -7,9 +7,6 @@ lang: "en"
 i18n_key: "cv"
 ref: "cv"
 description: "Staff ML Engineer & AI Architect with production GenAI, MLOps, and causal ads experience at scale. Ph.D. in Mechatronics, EMBA in Strategic Leadership."
-redirect_from:
-  - /cv/
-  - /resume
 ---
 
 {% include base_path %}

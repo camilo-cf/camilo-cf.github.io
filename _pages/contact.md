@@ -6,8 +6,6 @@ author_profile: false
 lang: "en"
 i18n_key: "contact"
 ref: "contact"
-redirect_from:
-  - /contact/
 ---
 
 Here are low-friction ways to get in touch without exposing personal email addresses.

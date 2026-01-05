@@ -1,8 +1,8 @@
 ---
+layout: redirect
+title: "About"
 permalink: /about_me/
-title: "About me"
 redirect_to: /en/about/
+lang: "en"
+message: "This page has moved to support multiple languages and updated content."
 ---
-
-<!-- Legacy page - redirects to /en/about/ -->
-This page has moved to [/en/about/]({{ "/en/about/" | relative_url }}).

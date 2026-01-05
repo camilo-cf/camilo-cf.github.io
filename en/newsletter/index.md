@@ -8,8 +8,6 @@ i18n_key: "newsletter"
 ref: "newsletter"
 description: "Subscribe to ML and AI insights via RSS or email. Production ML systems, GenAI, MLOps, and causal measurement updates."
 excerpt: "Get updates on production ML, GenAI, and MLOps insights."
-redirect_from:
-  - /newsletter/
 ---
 
 <div class="newsletter-hero">
