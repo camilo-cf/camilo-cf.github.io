@@ -1,6 +1,10 @@
-import { defineConfig, devices } from '@playwright/test';
+// @ts-check
+const { defineConfig, devices } = require('@playwright/test');
 
-export default defineConfig({
+/**
+ * @see https://playwright.dev/docs/test-configuration
+ */
+module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -9,7 +13,7 @@ export default defineConfig({
   reporter: 'html',
 
   use: {
-    baseURL: 'http://127.0.0.1:4000',
+    baseURL: process.env.BASE_URL || 'http://127.0.0.1:4000',
     trace: 'on-first-retry',
   },
 
@@ -20,8 +24,8 @@ export default defineConfig({
     },
   ],
 
-  webServer: {
-    command: 'bundle exec jekyll serve --skip-initial-build',
+  webServer: process.env.CI ? undefined : {
+    command: 'bundle exec jekyll serve',
     url: 'http://127.0.0.1:4000',
     reuseExistingServer: !process.env.CI,
     timeout: 120000,

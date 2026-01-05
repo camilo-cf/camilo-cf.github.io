@@ -74,7 +74,13 @@ layout: default
           {% include adsense_unit.html slot_id=site.adsense.slot_ids.post_bottom %}
         {% endif %}
         {% if page.show_cta != false %}
-          {% include post_cta.html %}
+          {% if page.collection == "publications" %}
+            {% include cta_publication.html %}
+          {% elsif page.collection == "talks" %}
+            {% include cta_talk.html %}
+          {% else %}
+            {% include post_cta.html %}
+          {% endif %}
         {% endif %}
       </section>
 

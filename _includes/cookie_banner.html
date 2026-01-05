@@ -2,7 +2,6 @@
 <div id="cookie-consent" class="cookie-consent" data-visible="false" role="dialog" aria-live="polite">
   <div class="cookie-consent__message">
     <p>{{ site.consent_banner.message | default: "This site uses cookies to improve your experience." }}</p>
-    <p class="cookie-consent__state">Current choice: <span data-consent-state>denied</span></p>
     <div class="cookie-consent__actions">
       <button type="button" class="btn btn--primary" data-consent-action="accept">{{ site.consent_banner.accept_text | default: "Accept" }}</button>
       <button type="button" class="btn" data-consent-action="reject">{{ site.consent_banner.reject_text | default: "Reject" }}</button>

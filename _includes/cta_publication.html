@@ -1,0 +1,42 @@
+{% assign ui = site.data.ui-text[page.lang] | default: site.data.ui-text[site.lang] | default: site.data.ui-text["en"] %}
+{% assign current_lang = page.lang | default: site.lang | default: "en" %}
+
+{% comment %} Build locale-aware URLs {% endcomment %}
+{% if current_lang == "es-419" %}
+  {% assign pillars_url = "/es-419/pilares/" %}
+  {% assign contact_url = "/es-419/contacto/" %}
+{% elsif current_lang == "pt-br" %}
+  {% assign pillars_url = "/pt-br/pilares/" %}
+  {% assign contact_url = "/pt-br/contato/" %}
+{% else %}
+  {% assign pillars_url = "/en/pillars/" %}
+  {% assign contact_url = "/en/contact/" %}
+{% endif %}
+
+<div class="post-cta post-cta--publication">
+  <h3>{{ ui.cta_publication_title | default: "From research to production" }}</h3>
+  <p>{{ ui.cta_publication_description | default: "Curious how this research translates to production ML systems? Explore the pillars for practical applications." }}</p>
+  <div class="post-cta__actions">
+    <a class="btn btn--primary" href="{{ pillars_url | relative_url }}">{{ ui.cta_publication_pillars | default: "See production ML pillars" }}</a>
+    <a class="btn" href="{{ contact_url | relative_url }}">{{ ui.cta_publication_contact | default: "Discuss applications" }}</a>
+  </div>
+</div>
+
+<style>
+.post-cta {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+.post-cta--publication {
+  border-left: 4px solid #667eea;
+}
+.post-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+</style>
