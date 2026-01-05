@@ -12,7 +12,24 @@ description: "Arquiteto de IA e Staff ML Engineer especializado em sistemas de G
 
 Projeto e entrego sistemas de ML e GenAI em produção—de anúncios e marketplaces a visão computacional—com foco em confiabilidade, governança e impacto de negócio.
 
-**Comece pelos pilares:**
+## Navegação rápida por interesse
+
+<div class="persona-routing" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+  <a href="{{ "/pt-br/cv/" | relative_url }}" class="btn btn--primary btn--large" style="text-align: center;">
+    <strong>Contratando?</strong><br/>
+    <span style="font-size: 0.85em;">Ver CV e prova de impacto</span>
+  </a>
+  <a href="{{ "/pt-br/pilares/" | relative_url }}" class="btn btn--primary btn--large" style="text-align: center;">
+    <strong>Engenharia?</strong><br/>
+    <span style="font-size: 0.85em;">Explorar profundidade técnica</span>
+  </a>
+  <a href="{{ "/pt-br/palestras/" | relative_url }}" class="btn btn--primary btn--large" style="text-align: center;">
+    <strong>Palestras?</strong><br/>
+    <span style="font-size: 0.85em;">Reserve para seu evento</span>
+  </a>
+</div>
+
+**Ou comece pelos pilares:**
 
 - [Sistemas de ML em produção em escala]({{ "/pt-br/pilares/production-ml-systems-at-scale/" | relative_url }}) — planos de controle, contratos e ads como subtópico.
 - [Medição causal para anúncios]({{ "/pt-br/pilares/causal-measurement-for-ads/" | relative_url }}) — lift, experimentos e contrafactuais.

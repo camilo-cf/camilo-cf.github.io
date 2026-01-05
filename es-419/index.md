@@ -12,7 +12,24 @@ description: "Ingeniero de ML Staff y arquitecto de IA especializado en sistemas
 
 Diseño y opero sistemas de ML y GenAI en producción—desde anuncios y marketplaces hasta visión por computadora—con foco en confiabilidad, gobernanza y resultados medibles.
 
-**Comienza por los pilares:**
+## Navegación rápida por interés
+
+<div class="persona-routing" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+  <a href="{{ "/es-419/cv/" | relative_url }}" class="btn btn--primary btn--large" style="text-align: center;">
+    <strong>¿Contratando?</strong><br/>
+    <span style="font-size: 0.85em;">Ver CV y prueba de impacto</span>
+  </a>
+  <a href="{{ "/es-419/pilares/" | relative_url }}" class="btn btn--primary btn--large" style="text-align: center;">
+    <strong>¿Ingeniería?</strong><br/>
+    <span style="font-size: 0.85em;">Explorar profundidad técnica</span>
+  </a>
+  <a href="{{ "/es-419/charlas/" | relative_url }}" class="btn btn--primary btn--large" style="text-align: center;">
+    <strong>¿Charlas?</strong><br/>
+    <span style="font-size: 0.85em;">Reserva para tu evento</span>
+  </a>
+</div>
+
+**O comienza por los pilares:**
 
 - [Sistemas de ML en producción a escala]({{ "/es-419/pilares/production-ml-systems-at-scale/" | relative_url }}) — planos de control, contratos y ads como subtema.
 - [Medición causal para anuncios]({{ "/es-419/pilares/causal-measurement-for-ads/" | relative_url }}) — lift, experimentos y contrafácticos.
