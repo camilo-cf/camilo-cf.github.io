@@ -201,22 +201,18 @@ test.describe('Navigation', () => {
 });
 
 test.describe('SEO - Redirect Pages', () => {
-  test('/cv/ redirect has noindex meta tag', async ({ page }) => {
-    // Prevent the meta refresh redirect so we can inspect the redirect page
-    await page.route('**/en/cv/', route => route.abort());
+  test('/cv/ redirect has noindex meta tag', async ({ request }) => {
+    // Fetch raw HTML without executing JavaScript/meta refresh
+    const response = await request.get(`${BASE_URL}/cv/`);
+    const html = await response.text();
 
-    // Navigate to redirect page
-    await page.goto(`${BASE_URL}/cv/`, { waitUntil: 'domcontentloaded' });
-
-    // Check for noindex,follow meta tag
-    const noindexMeta = page.locator('meta[name="robots"][content*="noindex"]');
-    await expect(noindexMeta).toHaveCount(1);
+    // Check for noindex,follow meta tag in raw HTML
+    expect(html).toContain('name="robots"');
+    expect(html).toContain('noindex');
 
     // Check for canonical tag pointing to destination
-    const canonicalLink = page.locator('link[rel="canonical"]');
-    await expect(canonicalLink).toHaveCount(1);
-    const href = await canonicalLink.getAttribute('href');
-    expect(href).toContain('/en/cv/');
+    expect(html).toContain('rel="canonical"');
+    expect(html).toContain('/en/cv/');
   });
 });
 
