@@ -249,13 +249,21 @@ test.describe('SEO - Hreflang & OpenGraph', () => {
   test('Homepage has JSON-LD Person schema', async ({ page }) => {
     await page.goto(`${BASE_URL}/en/`);
 
-    // Check for JSON-LD script
-    const jsonLd = page.locator('script[type="application/ld+json"]');
-    await expect(jsonLd).toHaveCount(1);
+    // Check for JSON-LD scripts (may have multiple - that's valid)
+    const jsonLdScripts = page.locator('script[type="application/ld+json"]');
+    const count = await jsonLdScripts.count();
+    expect(count).toBeGreaterThanOrEqual(1);
 
-    // Verify it contains Person schema
-    const content = await jsonLd.textContent();
-    expect(content).toContain('"@type": "Person"');
-    expect(content).toContain('Staff ML Engineer');
+    // Find the one with Person schema and verify it
+    let foundPersonSchema = false;
+    for (let i = 0; i < count; i++) {
+      const content = await jsonLdScripts.nth(i).textContent();
+      if (content && content.includes('"@type": "Person"')) {
+        foundPersonSchema = true;
+        expect(content).toContain('Staff ML Engineer');
+        break;
+      }
+    }
+    expect(foundPersonSchema).toBeTruthy();
   });
 });
