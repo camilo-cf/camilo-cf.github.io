@@ -202,7 +202,10 @@ test.describe('Navigation', () => {
 
 test.describe('SEO - Redirect Pages', () => {
   test('/cv/ redirect has noindex meta tag', async ({ page }) => {
-    // Navigate and wait for initial load (before meta refresh redirect happens)
+    // Prevent the meta refresh redirect so we can inspect the redirect page
+    await page.route('**/en/cv/', route => route.abort());
+
+    // Navigate to redirect page
     await page.goto(`${BASE_URL}/cv/`, { waitUntil: 'domcontentloaded' });
 
     // Check for noindex,follow meta tag
