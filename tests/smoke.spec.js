@@ -164,9 +164,9 @@ test.describe('Site Search', () => {
     expect(placeholder).toBeTruthy();
     expect(placeholder.length).toBeGreaterThan(0);
 
-    // Results container should exist
+    // Results container should exist in DOM (may be hidden initially)
     const resultsContainer = page.locator('#search-results');
-    await expect(resultsContainer).toBeVisible();
+    await expect(resultsContainer).toBeAttached();
   });
 
   test('/en/resources/ml-safety-nets-checklist/ exists', async ({ page }) => {
