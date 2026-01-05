@@ -44,6 +44,17 @@ main:
       en: "/en/case-studies/"
       es-419: "/es-419/casos/"
       pt-br: "/pt-br/casos/"
+  - key: speaking
+    titles:
+      default: "Speaking"
+      en: "Speaking"
+      es-419: "Charlas"
+      pt-br: "Palestras"
+    urls:
+      default: "/en/speaking/"
+      en: "/en/speaking/"
+      es-419: "/es-419/charlas/"
+      pt-br: "/pt-br/palestras/"
   - key: cv
     titles:
       default: "CV"
