@@ -147,3 +147,55 @@ test.describe('Cookie Consent (Privacy)', () => {
     expect(bodyText).not.toContain('Current choice: denied');
   });
 });
+
+test.describe('Site Search', () => {
+  test('/en/search/ exists and has search functionality', async ({ page }) => {
+    await page.goto(`${BASE_URL}/en/search/`);
+
+    // Page should load successfully
+    await expect(page).toHaveTitle(/Search/i);
+
+    // Search input should be visible
+    const searchInput = page.locator('#search-input');
+    await expect(searchInput).toBeVisible();
+
+    // Search input should have placeholder
+    const placeholder = await searchInput.getAttribute('placeholder');
+    expect(placeholder).toBeTruthy();
+    expect(placeholder.length).toBeGreaterThan(0);
+
+    // Results container should exist in DOM (may be hidden initially)
+    const resultsContainer = page.locator('#search-results');
+    await expect(resultsContainer).toBeAttached();
+  });
+
+  test('/en/resources/ml-safety-nets-checklist/ exists', async ({ page }) => {
+    await page.goto(`${BASE_URL}/en/resources/ml-safety-nets-checklist/`);
+
+    // Page should load successfully
+    await expect(page).toHaveTitle(/Safety Nets Checklist/i);
+
+    // Should have checklist sections
+    const checkboxes = page.locator('input[type="checkbox"]');
+    const checkboxCount = await checkboxes.count();
+    expect(checkboxCount).toBeGreaterThanOrEqual(20); // We have 40+ items
+
+    // Should have download/print button
+    const downloadButton = page.locator('button:has-text("Download PDF")');
+    await expect(downloadButton).toBeVisible();
+  });
+});
+
+test.describe('Navigation', () => {
+  test('Search link appears in navigation', async ({ page }) => {
+    await page.goto(`${BASE_URL}/en/`);
+
+    // Search link should be in navigation
+    const searchLink = page.locator('nav a:has-text("Search")');
+    await expect(searchLink).toBeVisible();
+
+    // Click should navigate to search page
+    await searchLink.click();
+    await expect(page).toHaveURL(/\/en\/search\//);
+  });
+});
