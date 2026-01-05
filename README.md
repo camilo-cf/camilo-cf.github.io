@@ -101,15 +101,51 @@ This site follows a **consent-first approach**:
 - Cookie banner managed by `assets/js/consent.js`
 - No tracking without consent
 
+### Cookie Consent Implementation
+
+**How it works**:
+1. User sees banner on first visit with "Accept" / "Decline" options
+2. Choice stored in `localStorage` as `cookie-consent` (value: `granted` or `denied`)
+3. If granted, `assets/js/consent.js` dynamically loads:
+   - Plausible Analytics (`plausible.io/js/script.js`)
+   - Google Analytics (if configured in `_config.yml`)
+   - Google AdSense (if enabled in `_config.yml`)
+4. If denied, no third-party scripts load
+
+**Gating logic** (`_includes/cookie_banner.html`):
+- Banner only shows if no prior consent decision exists
+- User can revoke consent via "Manage preferences" link (footer)
+- Banner does NOT show debug text in production (removed in Phase 4)
+
+**Testing consent gating**:
+```bash
+# Clear consent state in browser DevTools
+localStorage.removeItem('cookie-consent')
+# Reload page - banner should appear
+```
+
 ## Deployment
 
 Site deploys automatically via GitHub Pages on push to `main` or `master`.
 
-Build process:
-1. GitHub Actions runs Jekyll build
-2. Runs Playwright smoke tests
-3. Checks internal links
-4. Deploys to GitHub Pages
+**CI/CD Pipeline** (`.github/workflows/ci.yml`):
+1. **Build Check**: Jekyll build with strict front matter validation
+2. **Smoke Tests**: Playwright tests verify critical features:
+   - Persona routing buttons on all locale homepages
+   - Speaking/Impact pages exist with required content
+   - Email obfuscation on contact page (spam protection)
+   - SEO fundamentals (robots.txt, sitemap.xml)
+   - Meta descriptions on critical pages
+   - Cookie banner UX (no debug text)
+3. **File Verification**: Ensures required files are generated
+4. **Deploy**: GitHub Pages auto-deploy on success
+
+**Quality gates block deployment if**:
+- Persona routing broken
+- Speaking page missing talk proposals
+- Contact email exposed in raw HTML
+- robots.txt or sitemap.xml missing
+- Meta descriptions missing on homepage/CV/about
 
 ## Project Structure
 
@@ -164,6 +200,49 @@ Build process:
 3. Translate content
 4. Ensure CTA and UI elements use `ui-text` lookups
 
+### Adding a New Talk Proposal (Speaking Page)
+
+To add a new talk to the Speaking/Media Kit pages in all locales:
+
+1. **English** (`en/speaking/index.md`):
+   - Add new `### Talk Title` section
+   - Include abstract (2-3 paragraphs)
+   - Target audience description
+   - Key takeaways (3-5 bullets)
+
+2. **Spanish** (`es-419/charlas/index.md`):
+   - Translate talk title, abstract, and bullets
+   - Maintain same structure as English version
+
+3. **Portuguese** (`pt-br/palestras/index.md`):
+   - Translate all content
+   - Ensure consistency across all three locales
+
+**Best practices**:
+- Keep abstracts concise (150-200 words)
+- Include quantified outcomes when possible
+- Match talk level to target audience (Beginner/Intermediate/Advanced)
+- Update bio sections if credentials change
+
+### Adding a New Blog Post in Multiple Locales
+
+1. Create post in `_posts/` with lang front matter:
+   ```yaml
+   ---
+   title: "Your Post Title"
+   date: 2026-01-05
+   lang: "en"
+   ref: "unique-post-key"
+   i18n_key: "unique-post-key"
+   categories: [pillar-name]
+   tags: [tag1, tag2]
+   ---
+   ```
+
+2. Create translated versions with same `ref` and `i18n_key`
+
+3. Ensure each version links to correct locale pillar pages
+
 ## Contact Email Security
 
 Contact pages use **obfuscated email reveal**:
@@ -176,14 +255,59 @@ Implemented in `assets/js/contact.js`
 
 ## Testing
 
-The CI pipeline runs automated tests on every push:
+The CI pipeline runs automated tests on every push to ensure quality gates.
 
-- **Smoke tests** (`tests/smoke.spec.js`): Verify homepage, language selector, blog filters, contact reveal, and navigation consistency
-- **Link checking**: Detect broken internal links
+### Smoke Tests (`tests/smoke.spec.js`)
 
-Run tests locally before pushing:
+Comprehensive Playwright tests covering critical features:
+
+**1. Persona Routing (Conversion Optimization)**
+- Verifies "Hiring?", "Engineering?", "Speaking?" buttons exist on EN/ES/PT homepages
+- Ensures visitors can navigate by intent
+
+**2. Speaking/Authority Pages**
+- `/en/speaking/` has ≥3 talk proposals with abstracts
+- `/en/impact/` has quantified outcomes (percentages, metrics)
+- "Book me" CTA is visible
+
+**3. Spam-Safe Contact (Email Obfuscation)**
+- Contact page does NOT expose email in raw HTML
+- Email reveal mechanism exists (click-to-reveal)
+- Protects against scraper bots
+
+**4. SEO Fundamentals**
+- `/robots.txt` returns 200 and contains User-agent
+- `/sitemap.xml` returns 200 and valid XML
+- Critical pages (home, CV, about) have meta descriptions >50 chars
+
+**5. Cookie Consent (Privacy)**
+- Cookie banner appears on first visit
+- Does NOT show debug text "Current choice: denied"
+
+### Running Tests Locally
+
+**Run all tests:**
 ```bash
-npx playwright test
+npm test
+```
+
+**Run with UI mode (interactive debugging):**
+```bash
+npm run test:headed
+```
+
+**Debug specific test:**
+```bash
+npm run test:debug
+```
+
+**Run against local Jekyll server:**
+```bash
+# Terminal 1: Start Jekyll
+bundle exec jekyll serve
+
+# Terminal 2: Run tests
+BASE_URL=http://localhost:4000 npm test
 ```
 
 ---
