@@ -155,8 +155,22 @@ A profundidade técnica de Camilo vem de raízes diversas: tem Ph.D. em Engenhar
 
 ## Aparições recentes e próximas
 
-### 2025
-*Disponibilidade para temporada de conferências (Q2-Q4 2025)*
+{% if site.data.appearances.appearances.size > 0 %}
+<ul class="appearances-list">
+{% for appearance in site.data.appearances.appearances %}
+  <li class="appearance-item">
+    <span class="appearance-date">{{ appearance.date | date: "%B %Y" }}</span>
+    <span class="appearance-type">[{{ appearance.type }}]</span>
+    <strong class="appearance-event">{{ appearance.event }}</strong>
+    {% if appearance.title %}<br><em>{{ appearance.title }}</em>{% endif %}
+    {% if appearance.location %}<br><span class="appearance-location">{{ appearance.location }}</span>{% endif %}
+    {% if appearance.url %}<br><a href="{{ appearance.url }}" target="_blank" rel="noopener">Ver detalhes →</a>{% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% else %}
+<p><em>Disponibilidade para temporada de conferências (Q2-Q4 2025). Aparições recentes serão listadas aqui conforme ocorrem.</em></p>
+{% endif %}
 
 ### Arquivo (2012-2017)
 Apresentações anteriores em conferências acadêmicas disponíveis na [página de arquivo de palestras]({{ "/talks/" | relative_url }}).

@@ -1,0 +1,19 @@
+# Recent speaking appearances, podcast interviews, and media features
+# Each appearance should include:
+# - event: Event or podcast name
+# - date: Date in YYYY-MM-DD format
+# - type: talk | podcast | panel | interview | workshop
+# - title: Talk/episode title (optional)
+# - url: Link to recording/article (optional)
+# - location: City/country or "Virtual" (optional)
+#
+# Example entry:
+# - event: "PyData Global 2025"
+#   date: "2025-06-15"
+#   type: "talk"
+#   title: "GenAI Evaluation Loops: From Vibes to Metrics"
+#   url: "https://example.com/recording"
+#   location: "Virtual"
+
+# Currently empty - appearances will be added as they occur
+appearances: []

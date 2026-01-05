@@ -155,8 +155,22 @@ Camilo's technical depth comes from diverse roots: he holds a Ph.D. in Mechanica
 
 ## Recent & upcoming appearances
 
-### 2025
-*Availability for conference season (Q2-Q4 2025)*
+{% if site.data.appearances.appearances.size > 0 %}
+<ul class="appearances-list">
+{% for appearance in site.data.appearances.appearances %}
+  <li class="appearance-item">
+    <span class="appearance-date">{{ appearance.date | date: "%B %Y" }}</span>
+    <span class="appearance-type">[{{ appearance.type }}]</span>
+    <strong class="appearance-event">{{ appearance.event }}</strong>
+    {% if appearance.title %}<br><em>{{ appearance.title }}</em>{% endif %}
+    {% if appearance.location %}<br><span class="appearance-location">{{ appearance.location }}</span>{% endif %}
+    {% if appearance.url %}<br><a href="{{ appearance.url }}" target="_blank" rel="noopener">View details →</a>{% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% else %}
+<p><em>Availability for conference season (Q2-Q4 2025). Recent appearances will be listed here as they occur.</em></p>
+{% endif %}
 
 ### Archive (2012-2017)
 Earlier academic conference presentations available on the [talks archive page]({{ "/talks/" | relative_url }}).

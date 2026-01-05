@@ -216,6 +216,29 @@ test.describe('SEO - Redirect Pages', () => {
   });
 });
 
+test.describe('Blog Content & Empty State', () => {
+  test('/en/blog/ shows posts and hides empty-state by default', async ({ page }) => {
+    await page.goto(`${BASE_URL}/en/blog/`);
+
+    // Page should load successfully
+    await expect(page).toHaveTitle(/Blog/i);
+
+    // Should have blog posts (we have 8 posts)
+    const blogCards = page.locator('.blog-card');
+    const postCount = await blogCards.count();
+    expect(postCount).toBeGreaterThanOrEqual(1);
+
+    // Empty state should be hidden by default
+    const emptyState = page.locator('#blog-empty');
+    await expect(emptyState).toBeHidden();
+
+    // Verify posts have expected structure
+    const firstCard = blogCards.first();
+    await expect(firstCard.locator('.blog-card__title')).toBeVisible();
+    await expect(firstCard.locator('.blog-card__meta')).toBeVisible();
+  });
+});
+
 test.describe('SEO - Hreflang & OpenGraph', () => {
   test('Homepage has hreflang tags for all locales', async ({ page }) => {
     await page.goto(`${BASE_URL}/en/`);
