@@ -332,3 +332,178 @@ See more info at https://academicpages.github.io/
 - Reading time, related posts, and CTAs appear on post pages.
 - Cookie/consent banner appears, stores consent, and only loads GA/Ads after acceptance (ads are off by default).
 - Pagination, category/tag pages, and consent banner behave as expected when running `bundle exec jekyll serve`.
+
+## SEO & Conversion Features
+
+This site is optimized for search engines and conversion. Here's what's implemented:
+
+### Search Engine Optimization
+
+**Structured Data (JSON-LD)**:
+- Person schema with jobTitle, worksFor, alumniOf, knowsAbout
+- Automatically included on all pages via `_includes/seo_schema.html`
+- Helps Google understand expertise and authority
+
+**Meta Tags** (via `jekyll-seo-tag`):
+- OpenGraph tags for social sharing
+- Twitter cards for tweet previews
+- Meta descriptions on all critical pages (homepage, CV, about)
+- Canonical tags to prevent duplicate content
+
+**Multi-locale SEO**:
+- hreflang tags for EN / ES-419 / PT-BR
+- x-default hreflang pointing to root
+- Locale-aware sitemaps via `jekyll-sitemap`
+
+**robots.txt**:
+- Allows all search engines
+- Points to sitemap.xml
+- Located at `/robots.txt`
+
+**Branded Redirects**:
+- Legacy URLs (/cv/, /contact/, /newsletter/, /about_me/) use custom redirect layout
+- Include `noindex,follow` meta tag to prevent SEO pollution
+- Professional UX with branding instead of bare "Redirecting..." pages
+
+### Conversion Optimization
+
+**Persona Routing**:
+- Homepage has intent-based navigation: "Hiring?", "Engineering?", "Speaking?"
+- Guides visitors to relevant content based on their goals
+- Implemented on all locale homepages
+
+**Lead Magnet**:
+- Production ML Safety Nets Checklist at `/en/resources/ml-safety-nets-checklist/`
+- 40+ actionable items across 7 categories
+- Print-friendly PDF (no email gate)
+- Builds trust and demonstrates expertise
+
+**Site Search**:
+- Full-text search via simple-jekyll-search
+- Indexes blog posts, pages, and case studies by locale
+- Available at `/en/search/`, `/es-419/buscar/`, `/pt-br/busca/`
+
+**Contextual CTAs**:
+- Publications → Production ML pillars
+- Talks → Speaking page
+- Blog posts → Newsletter signup
+- Reduces generic "contact me" fatigue
+
+**Authority Pages**:
+- Speaking page with 6 conference-ready talk proposals
+- Impact page with quantified outcomes
+- Newsletter pages (RSS-first, email optional)
+
+### Social Sharing
+
+Share buttons cleaned up to include only:
+- Twitter (high engagement for tech content)
+- LinkedIn (professional audience)
+
+Removed obsolete platforms:
+- Google+ (service shut down in 2019)
+- Facebook (low engagement, privacy concerns)
+
+### Privacy & Compliance
+
+**Cookie Consent**:
+- Analytics and ads disabled by default
+- Scripts load only after explicit consent
+- No debug text in production
+- See "Cookie Consent Implementation" section above for details
+
+**Email Protection**:
+- Contact page uses click-to-reveal for email
+- Alias email (not personal inbox)
+- Protected from scraper bots
+
+## Maintenance Guide
+
+### Adding New Content
+
+**Blog Posts** (with SEO):
+```yaml
+---
+title: "Your Post Title"
+description: "150-character summary for meta description and search results"
+date: 2026-01-05
+categories: [pillar-name]
+tags: [tag1, tag2]
+lang: "en"
+ref: "unique-post-key"
+i18n_key: "unique-post-key"
+---
+```
+
+**New Pages** (with locale support):
+1. Create in `en/`, `es-419/`, `pt-br/` directories
+2. Include front matter:
+```yaml
+---
+layout: single
+title: "Page Title"
+permalink: /en/page-slug/
+lang: "en"
+ref: "page-ref"
+i18n_key: "page-ref"
+description: "Meta description for SEO"
+---
+```
+
+**Talk Proposals** (Speaking page):
+See "Adding a New Talk Proposal" section above
+
+### SEO Checklist for New Pages
+
+- [ ] Meta description (150-160 characters)
+- [ ] Title tag (50-60 characters)
+- [ ] Hreflang tags (automatic if `ref` is set)
+- [ ] Canonical tag (automatic)
+- [ ] JSON-LD schema (automatic on all pages)
+- [ ] OpenGraph image configured (set in `_config.yml`)
+
+### Testing SEO Changes
+
+```bash
+# Build site
+bundle exec jekyll build
+
+# Check generated HTML
+cat _site/en/your-page/index.html | grep -E "meta|hreflang|canonical"
+
+# Run smoke tests
+npm test
+```
+
+### Verifying Search Index
+
+After adding new posts:
+```bash
+# Build site
+bundle exec jekyll build
+
+# Check search.json
+cat _site/search.json | jq '.'
+```
+
+---
+
+## Performance & Quality
+
+**Automated Quality Gates** (`.github/workflows/ci.yml`):
+- Jekyll build with strict front matter validation
+- 20+ Playwright smoke tests
+- Required file verification (robots.txt, sitemap.xml, speaking pages)
+- Tests run on every push to prevent regressions
+
+**What the tests verify**:
+- Persona routing buttons on all locales
+- Speaking/Impact pages have required content
+- Email obfuscation on contact page
+- SEO fundamentals (robots.txt, sitemap.xml, meta descriptions)
+- Redirect pages have noindex tags
+- hreflang and OpenGraph tags present
+- JSON-LD Person schema exists
+- Search functionality works
+- Lead magnet checklist loads
+
