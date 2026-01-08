@@ -25,7 +25,7 @@ module.exports = defineConfig({
   ],
 
   webServer: process.env.CI ? undefined : {
-    command: 'bundle exec jekyll serve',
+    command: 'LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 PATH=/opt/rbenv/versions/3.3.6/bin:$PATH bundle exec jekyll serve',
     url: 'http://127.0.0.1:4000',
     reuseExistingServer: !process.env.CI,
     timeout: 120000,

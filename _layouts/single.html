@@ -4,7 +4,14 @@ layout: default
 
 {% include base_path %}
 
-{% assign ads_allowed = site.adsense.enabled and page.show_ads != false and page.collection == "posts" %}
+{% assign ads_allowed = false %}
+{% if site.adsense.enabled %}
+  {% unless page.show_ads == false %}
+    {% if page.collection == "posts" %}
+      {% assign ads_allowed = true %}
+    {% endif %}
+  {% endunless %}
+{% endif %}
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
 {% endif %}
