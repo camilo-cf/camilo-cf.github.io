@@ -118,7 +118,6 @@ newsletter:
   primary_locale: "en"
 
 contact:
-  alias_email: "contact@camilo-cf.com"
   formspree_endpoint: ""
   linkedin_url: "https://www.linkedin.com/in/camilocaceresf"
   scheduling_url: ""
