@@ -43,7 +43,8 @@ ref: "blog-index"
 {% assign paginator_matches_locale = false %}
 {% if paginator and paginator.posts %}
   {% assign localized_count = paginator.posts | where: "lang", page.lang | size %}
-  {% if localized_count == paginator.posts | size %}
+  {% assign total_paginator_count = paginator.posts | size %}
+  {% if localized_count == total_paginator_count %}
     {% assign paginator_matches_locale = true %}
     {% assign paginated_posts = paginator.posts %}
   {% endif %}
