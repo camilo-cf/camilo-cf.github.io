@@ -2,3 +2,5 @@ _site/
 node_modules/
 .bundle/
 vendor/
+playwright-report/
+test-results/
