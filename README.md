@@ -167,8 +167,7 @@ Site deploys automatically via GitHub Pages on push to `main` or `master`.
 ├── en/, es-419/, pt-br/     # Locale-specific pages
 ├── assets/
 │   ├── js/
-│   │   ├── consent.js       # Cookie consent logic
-│   │   └── contact.js       # Email reveal logic
+│   │   └── consent.js       # Cookie consent logic
 │   └── ...
 ├── tests/
 │   └── smoke.spec.js        # Playwright tests
@@ -243,15 +242,13 @@ To add a new talk to the Speaking/Media Kit pages in all locales:
 
 3. Ensure each version links to correct locale pillar pages
 
-## Contact Email Security
+## Contact Privacy
 
-Contact pages use **obfuscated email reveal**:
-- Email split into user + reversed domain in HTML
-- Only revealed after user clicks button
-- Uses alias email (not personal inbox)
-- Accessible via keyboard (Enter/Space)
-
-Implemented in `assets/js/contact.js`
+Contact pages use **LinkedIn-only approach**:
+- No email address exposed anywhere on the site
+- LinkedIn profile provided as primary contact method
+- Optional contact form (when Formspree is configured)
+- Maximum spam protection by not exposing email
 
 ## Testing
 
@@ -412,10 +409,10 @@ Removed obsolete platforms:
 - No debug text in production
 - See "Cookie Consent Implementation" section above for details
 
-**Email Protection**:
-- Contact page uses click-to-reveal for email
-- Alias email (not personal inbox)
-- Protected from scraper bots
+**Contact Privacy**:
+- No email addresses exposed on the site
+- LinkedIn used as primary contact method
+- Maximum spam protection
 
 ## Maintenance Guide
 

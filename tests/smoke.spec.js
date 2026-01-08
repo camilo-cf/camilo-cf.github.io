@@ -66,24 +66,26 @@ test.describe('Speaking/Authority Pages', () => {
   });
 });
 
-test.describe('Spam-Safe Contact (Email Obfuscation)', () => {
-  test('/en/contact/ does not expose email in initial HTML', async ({ page }) => {
+test.describe('Spam-Safe Contact (No Email Exposure)', () => {
+  test('/en/contact/ does not expose email anywhere', async ({ page }) => {
     await page.goto(`${BASE_URL}/en/contact/`);
 
     // Get initial HTML content before any JavaScript execution
     const htmlContent = await page.content();
 
-    // Email should NOT be in plaintext in HTML
-    // (Actual email is camilo.cf at gmail.com, should be obfuscated)
+    // Email should NOT be in plaintext in HTML anywhere
+    // (Actual email is camilo.cf at gmail.com, should never be exposed)
     expect(htmlContent).not.toMatch(/camilo\.cf@gmail\.com/);
     expect(htmlContent).not.toMatch(/mailto:camilo/);
+    expect(htmlContent).not.toMatch(/contact@camilo-cf\.com/);
 
-    // Should have click-to-reveal mechanism
-    const revealButton = page.locator('[data-action="reveal-email"], .email-reveal, button:has-text("reveal")');
-    // At least one reveal mechanism should exist (could be button or data attribute)
-    const hasRevealMechanism = await revealButton.count() > 0 ||
-                                htmlContent.includes('data-') && htmlContent.includes('email');
-    expect(hasRevealMechanism).toBeTruthy();
+    // Should NOT have any email reveal mechanism (removed for spam protection)
+    const revealButton = page.locator('button:has-text("reveal")');
+    expect(await revealButton.count()).toBe(0);
+
+    // Should have LinkedIn as contact method
+    const linkedinLink = page.locator('a[href*="linkedin.com"]');
+    expect(await linkedinLink.count()).toBeGreaterThan(0);
   });
 });
 
