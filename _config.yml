@@ -93,9 +93,9 @@ social:
 
 # Analytics
 analytics:
-  provider               : plausible # false (default), "google", "google-universal", "custom", "plausible"
+  provider               : google # false (default), "google", "google-universal", "custom", "plausible"
   google:
-    tracking_id          : ""
+    tracking_id          : "G-0ZPVV6GNEY"
   plausible:
     domain               : "camilo-cf.github.io"
     api_host             : "https://plausible.io"
