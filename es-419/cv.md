@@ -34,6 +34,10 @@ redirect_from:
 - **Modelado:** Inferencia causal, experimentación de anuncios, GNNs, recomendadores y evaluación de GenAI.
 - **Liderazgo:** Dirección técnica, estándares, mentoría y roadmaps ejecutivos.
 
+## Actividad y Contribuciones en GitHub
+
+{% include github_stats.html %}
+
 ## Casos de estudio
 - [Guardrails de plataforma para servicios de ML]({{ "/es-419/casos/platform-guardrails/" | relative_url }})
 - [Incrementalidad de anuncios a escala]({{ "/es-419/casos/ads-incrementality/" | relative_url }})

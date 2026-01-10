@@ -32,6 +32,10 @@ description: "Staff ML Engineer & AI Architect with production GenAI, MLOps, and
 - **Modeling:** Causal inference, uplift/ads experimentation, GNNs, recommender systems, and GenAI evaluation.
 - **Leadership:** Technical direction, standards, mentoring, and exec-facing roadmaps.
 
+## GitHub Activity & Contributions
+
+{% include github_stats.html %}
+
 ## Selected case studies
 - [Platform guardrails for ML services]({{ "/en/case-studies/platform-guardrails/" | relative_url }}) — introduced delivery contracts, observability defaults, and rollback playbooks.
 - [Ads incrementality at scale]({{ "/en/case-studies/ads-incrementality/" | relative_url }}) — lift measurement with geo experiments, simulations, and creative experimentation.
