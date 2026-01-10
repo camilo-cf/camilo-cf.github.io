@@ -100,7 +100,7 @@ description: "Search blog posts, case studies, and technical content on producti
 }
 </style>
 
-<script src="https://unpkg.com/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script>
+<script src="{{ "/assets/js/vendor/simple-jekyll-search.min.js" | relative_url }}"></script>
 <script>
 window.addEventListener('DOMContentLoaded', function() {
   var searchInput = document.getElementById('search-input');

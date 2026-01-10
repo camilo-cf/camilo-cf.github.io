@@ -118,9 +118,9 @@ newsletter:
   primary_locale: "en"
 
 contact:
-  formspree_endpoint: ""
+  formspree_endpoint: ""  # Optional: Add Formspree endpoint to enable contact form (https://formspree.io/)
   linkedin_url: "https://www.linkedin.com/in/camilocaceresf"
-  scheduling_url: ""
+  scheduling_url: ""  # Optional: Add Calendly or similar scheduling URL
 
 adsense:
   enabled: false
