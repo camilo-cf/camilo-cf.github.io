@@ -33,11 +33,7 @@
         <h1>{{ .title | default site.Title | markdownify }}</h1>
         <span>{{ .subtitle | markdownify }}</span>
 
-        {{- with (where site.RegularPages "Section" "posts").ByDate.Reverse | first 1 }}
-            {{- range . }}
-            <a href="{{ .Permalink }}" class="profile-cta">Read my latest post on ML systems →</a>
-            {{- end }}
-        {{- end }}
+        <a href="/posts/" class="profile-cta">Blog →</a>
 
         {{- partial "social_icons.html" -}}
 

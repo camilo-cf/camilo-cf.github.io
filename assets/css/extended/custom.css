@@ -43,3 +43,25 @@
     text-decoration: underline;
     text-underline-offset: 3px;
 }
+
+/** Newsletter CTA at end of blog posts **/
+.post-newsletter-cta {
+    margin: 2rem 0 1rem;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--primary);
+    background: var(--code-bg);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.95rem;
+    color: var(--secondary);
+}
+
+.post-newsletter-cta a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.post-newsletter-cta a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
