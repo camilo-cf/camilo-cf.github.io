@@ -2,6 +2,8 @@
 title: "Now"
 description: "Qué estoy haciendo ahora"
 layout: "single"
+date: 2026-04-24T00:00:00-05:00
+lastmod: 2026-04-24T00:00:00-05:00
 ---
 
 ## Ahora
