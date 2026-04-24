@@ -27,3 +27,19 @@
     border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
+/** Homepage CTA below tagline **/
+.profile-cta {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.profile-cta:hover {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
