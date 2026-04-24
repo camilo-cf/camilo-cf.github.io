@@ -42,12 +42,7 @@
   </div>
   {{- end }}
 
-  <!-- Newsletter CTA -->
-  <div class="post-newsletter-cta">
-    <p>
-      ¿Te gustó este post? <a href="https://camilocaceres.substack.com" target="_blank" rel="noopener">Suscribite a «Más Allá del Notebook»</a> — una historia semanal sobre ML en producción. Sin relleno.
-    </p>
-  </div>
+  {{- partial "newsletter-cta.html" . -}}
 
   <footer class="post-footer">
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
