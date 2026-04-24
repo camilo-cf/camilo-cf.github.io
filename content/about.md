@@ -7,7 +7,7 @@ lastmod: 2026-04-24T00:00:00-05:00
 ---
 
 <div class="about-photo-container">
-  <img src="/images/headshot-2026.jpg" alt="Camilo Cáceres" class="about-photo">
+  <img src="https://substackcdn.com/image/fetch/$s_!7IHu!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff0f200f0-7ec5-477f-b2e8-541881ea970e_960x960.jpeg" alt="Camilo Cáceres" class="about-photo">
 </div>
 
 ## De UNICAMP a MercadoLibre
