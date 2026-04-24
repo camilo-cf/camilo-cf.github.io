@@ -3,6 +3,8 @@ languageCode: "es-co"
 title: "Camilo Cáceres"
 theme: "PaperMod"
 
+googleAnalytics: "G-0ZPVV6GNEY"
+
 pagination:
   pagerSize: 10
 
@@ -15,6 +17,7 @@ params:
   description: "Staff ML Engineer @ MercadoLibre. PhD en optimización de sistemas. ML en producción, más allá del notebook."
   keywords: [ML, Machine Learning, Staff Engineer, Ad Tech, MLOps, LATAM]
   author: "Camilo Cáceres"
+  images: ["/images/profile.jpg"]
 
   # Profile mode (homepage)
   profileMode:
@@ -80,10 +83,21 @@ menu:
       name: "Sobre mí"
       url: "/about/"
       weight: 20
+    - identifier: "now"
+      name: "Now"
+      url: "/now/"
+      weight: 25
     - identifier: "newsletter"
       name: "Newsletter"
       url: "https://camilocaceres.substack.com"
       weight: 30
+
+# Privacy settings
+privacy:
+  googleAnalytics:
+    disable: false
+    respectDoNotTrack: true
+    useSessionStorage: true
 
 # Markup settings
 markup:
