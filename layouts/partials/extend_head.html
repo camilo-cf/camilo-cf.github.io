@@ -3,7 +3,7 @@
 <meta property="og:description" content="{{ if .Summary }}{{ .Summary }}{{ else }}{{ site.Params.description }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="https://substackcdn.com/image/fetch/$s_!7IHu!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff0f200f0-7ec5-477f-b2e8-541881ea970e_960x960.jpeg">
+<meta property="og:image" content="{{ .Site.BaseURL }}images/headshot-2026.jpg">
 <meta property="og:locale" content="es_CO">
 {{ if .IsPage }}
 <meta property="article:author" content="Camilo Cáceres">
@@ -14,7 +14,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}">
 <meta name="twitter:description" content="{{ if .Summary }}{{ .Summary }}{{ else }}{{ site.Params.description }}{{ end }}">
-<meta name="twitter:image" content="https://substackcdn.com/image/fetch/$s_!7IHu!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff0f200f0-7ec5-477f-b2e8-541881ea970e_960x960.jpeg">
+<meta name="twitter:image" content="{{ .Site.BaseURL }}images/headshot-2026.jpg">
 
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5331aa390bef40ffb7c875f48a627c53"}'></script>

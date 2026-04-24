@@ -22,7 +22,7 @@ params:
     enabled: true
     title: "Camilo Cáceres"
     subtitle: "Staff ML Engineer @ MercadoLibre | PhD (UNICAMP) | ML en producción, más allá del notebook"
-    imageUrl: "https://substackcdn.com/image/fetch/$s_!7IHu!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff0f200f0-7ec5-477f-b2e8-541881ea970e_960x960.jpeg"
+    imageUrl: "/images/headshot-2026.jpg"
     imageTitle: "Camilo Cáceres"
     imageWidth: 200
     imageHeight: 200
