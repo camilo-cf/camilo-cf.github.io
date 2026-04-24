@@ -1,6 +1,17 @@
-_site/
-node_modules/
-.bundle/
-vendor/
-playwright-report/
-test-results/
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log

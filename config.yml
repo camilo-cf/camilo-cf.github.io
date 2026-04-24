@@ -1,0 +1,95 @@
+baseURL: "https://camilo-cf.github.io"
+languageCode: "es-co"
+title: "Camilo Cáceres"
+theme: "PaperMod"
+
+pagination:
+  pagerSize: 10
+
+enableRobotsTXT: true
+enableEmoji: true
+
+params:
+  env: production
+  title: "Camilo Cáceres"
+  description: "Staff ML Engineer @ MercadoLibre. PhD en optimización de sistemas. ML en producción, más allá del notebook."
+  keywords: [ML, Machine Learning, Staff Engineer, Ad Tech, MLOps, LATAM]
+  author: "Camilo Cáceres"
+
+  # Profile mode (homepage)
+  profileMode:
+    enabled: true
+    title: "Camilo Cáceres"
+    subtitle: "Staff ML Engineer @ MercadoLibre | PhD (UNICAMP) | ML en producción, más allá del notebook"
+    imageUrl: "/images/profile.jpg"
+    imageTitle: "Camilo Cáceres"
+    imageWidth: 150
+    imageHeight: 150
+    buttons:
+      - name: "Newsletter"
+        url: "https://camilocaceres.substack.com"
+      - name: "Blog"
+        url: "/posts"
+      - name: "Sobre mí"
+        url: "/about"
+
+  # Social icons
+  socialIcons:
+    - name: "linkedin"
+      url: "https://linkedin.com/in/camilocaceres"
+    - name: "github"
+      url: "https://github.com/camilo-cf"
+    - name: "substack"
+      url: "https://camilocaceres.substack.com"
+    - name: "rss"
+      url: "index.xml"
+
+  # Features
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+
+  # Assets (optional favicon)
+  assets:
+    disableHLJS: false
+
+# Menu
+menu:
+  main:
+    - identifier: "posts"
+      name: "Blog"
+      url: "/posts/"
+      weight: 10
+    - identifier: "about"
+      name: "Sobre mí"
+      url: "/about/"
+      weight: 20
+    - identifier: "newsletter"
+      name: "Newsletter"
+      url: "https://camilocaceres.substack.com"
+      weight: 30
+
+# Markup settings
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    anchorLineNos: true
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    style: monokai
