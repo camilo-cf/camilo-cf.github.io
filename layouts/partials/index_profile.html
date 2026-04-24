@@ -54,6 +54,13 @@
                 </span>
             </a>
             {{- end }}
+            {{- with (where site.RegularPages "Section" "posts").ByDate.Reverse | first 1 }}
+                {{- range . }}
+                <a class="button" href="{{ .Permalink }}" rel="noopener" title="Último post">
+                    <span class="button-inner">Último post</span>
+                </a>
+                {{- end }}
+            {{- end }}
         </div>
         {{- end }}
     </div>

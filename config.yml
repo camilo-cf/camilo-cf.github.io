@@ -31,8 +31,6 @@ params:
         url: "https://camilocaceres.substack.com"
       - name: "Blog"
         url: "/posts/"
-      - name: "Último post"
-        url: "/posts/2026/por-que-escribo/"
       - name: "Sobre mí"
         url: "/about"
 
