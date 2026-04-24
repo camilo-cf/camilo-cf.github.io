@@ -66,6 +66,11 @@ params:
   ShareButtons:
     - linkedin
 
+  # Theme colors
+  favicon: "/favicon.ico"
+  theme_color: "#1a1a1a"
+  background_color: "#ffffff"
+
   # Assets (optional favicon)
   assets:
     disableHLJS: false
