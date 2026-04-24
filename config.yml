@@ -15,17 +15,17 @@ params:
   description: "Staff ML Engineer @ MercadoLibre. PhD en optimización de sistemas. ML en producción, más allá del notebook."
   keywords: [ML, Machine Learning, Staff Engineer, Ad Tech, MLOps, LATAM]
   author: "Camilo Cáceres"
-  images: ["/images/profile.jpg"]
+  images: ["/images/og-headshot.jpg"]
 
   # Profile mode (homepage)
   profileMode:
     enabled: true
     title: "Camilo Cáceres"
     subtitle: "Staff ML Engineer @ MercadoLibre | PhD (UNICAMP) | ML en producción, más allá del notebook"
-    imageUrl: "/images/profile.jpg"
+    imageUrl: "/images/headshot-2026.jpg"
     imageTitle: "Camilo Cáceres"
-    imageWidth: 150
-    imageHeight: 150
+    imageWidth: 200
+    imageHeight: 200
     buttons:
       - name: "Newsletter"
         url: "https://camilocaceres.substack.com"

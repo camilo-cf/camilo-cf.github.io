@@ -1,0 +1,29 @@
+/** Homepage profile image (PaperMod profile mode) **/
+.profile img {
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/** About page photo **/
+.about-photo-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.about-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/** Dark mode adjustments **/
+.dark .profile img,
+.dark .about-photo {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

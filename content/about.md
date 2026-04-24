@@ -6,6 +6,10 @@ date: 2026-04-24T00:00:00-05:00
 lastmod: 2026-04-24T00:00:00-05:00
 ---
 
+<div class="about-photo-container">
+  <img src="/images/headshot-2026.jpg" alt="Camilo Cáceres" class="about-photo">
+</div>
+
 ## De UNICAMP a MercadoLibre
 
 En 2014 estaba en Campinas, Brasil, modelando robots con controladores PID y aprendiendo teoría de control en UNICAMP. A las 2 AM de un martes, debuggeando por qué un robot seguía chocando contra la pared, descubrí que el problema no era el algoritmo — era que no estaba modelando la dinámica correcta. Esa lección sigue conmigo: los sistemas fallan en los límites, no en el promedio.
