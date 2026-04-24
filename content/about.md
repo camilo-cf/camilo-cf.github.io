@@ -31,6 +31,6 @@ Control theory, neuroevolution, sistemas dinámicos aplicados a optimización.
 
 ## Contacto
 
-- 💼 [LinkedIn](https://linkedin.com/in/camilocaceres)
+- 💼 [LinkedIn](https://www.linkedin.com/in/camilocaceresf/)
 - 💻 [GitHub](https://github.com/camilo-cf)
 - 📬 [Newsletter](https://camilocaceres.substack.com)
