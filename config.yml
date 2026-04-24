@@ -61,6 +61,10 @@ params:
   showtoc: true
   tocopen: false
 
+  # Share buttons (only LinkedIn)
+  ShareButtons:
+    - linkedin
+
   # Assets (optional favicon)
   assets:
     disableHLJS: false
