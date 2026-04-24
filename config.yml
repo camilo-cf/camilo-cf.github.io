@@ -3,8 +3,6 @@ languageCode: "es-co"
 title: "Camilo Cáceres"
 theme: "PaperMod"
 
-googleAnalytics: "G-0ZPVV6GNEY"
-
 pagination:
   pagerSize: 10
 
@@ -91,13 +89,6 @@ menu:
       name: "Newsletter"
       url: "https://camilocaceres.substack.com"
       weight: 30
-
-# Privacy settings
-privacy:
-  googleAnalytics:
-    disable: false
-    respectDoNotTrack: true
-    useSessionStorage: true
 
 # Markup settings
 markup:
